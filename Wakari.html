@@ -1,0 +1,1332 @@
+<!DOCTYPE html>
+<!-- saved from url=(0024)https://wakari.io/wakari -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>Wakari</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Wakari">
+    <meta name="author" content="Continuum Analytics">
+    <link href="https://wakari.io/static/vendor/notifications/toastr.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+    <!-- start Mixpanel -->
+
+    <script type="text/javascript" async="" src="./Wakari_files/ga.js"></script><script async="" src="./Wakari_files/analytics.js"></script><script type="text/javascript" async="" src="./Wakari_files/mixpanel-2.1.min.js"></script><script type="text/javascript">
+      (function(c,a){window.mixpanel=a;var b,d,h,e;b=c.createElement("script");b.type="text/javascript";b.async=!0;b.src=("https:"===c.location.protocol?"https:":"http:")+'//cdn.mxpnl.com/libs/mixpanel-2.1.min.js';d=c.getElementsByTagName("script")[0];d.parentNode.insertBefore(b,d);a._i=[];a.init=function(b,c,f){function d(a,b){var c=b.split(".");2==c.length&&(a=a[c[0]],b=c[1]);a[b]=function(){a.push([b].concat(Array.prototype.slice.call(arguments,0)))}}var g=a;"undefined"!==typeof f?
+      g=a[f]=[]:f="mixpanel";g.people=g.people||[];h="disable track track_pageview track_links track_forms register register_once unregister identify name_tag set_config people.identify people.set people.increment".split(" ");for(e=0;e<h.length;e++)d(g,h[e]);a._i.push([b,c,f])};a.__SV=1.1})(document,window.mixpanel||[]);
+                                                                                                                                                                                                                                              mixpanel.init("e29ca17449e6f58b3c0625ae66b21ba9");
+                                                                                                                                                                                                                                              </script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-27761864-6', 'wakari.io');
+  ga('send', 'pageview');
+
+</script>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount',  'UA-27761864-6']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+    <!-- end Mixpanel -->
+  <style type="text/css"></style><style id="ace_editor">.ace_editor {position: relative;overflow: hidden;font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;}.ace_scroller {position: absolute;overflow: hidden;}.ace_content {position: absolute;-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;cursor: text;}.ace_gutter {position: absolute;overflow : hidden;height: 100%;width: auto;cursor: default;z-index: 4;}.ace_gutter-active-line {position: absolute;left: 0;right: 0;}.ace_scroller.ace_scroll-left {box-shadow: 17px 0 16px -16px rgba(0, 0, 0, 0.4) inset;}.ace_gutter-cell {padding-left: 19px;padding-right: 6px;background-repeat: no-repeat;}.ace_gutter-cell.ace_error {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6QUM2OEZDQTQ4RTU0MTFFMUEzM0VFRTM2RUY1M0RBMjYiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6QUM2OEZDQTU4RTU0MTFFMUEzM0VFRTM2RUY1M0RBMjYiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDpBQzY4RkNBMjhFNTQxMUUxQTMzRUVFMzZFRjUzREEyNiIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDpBQzY4RkNBMzhFNTQxMUUxQTMzRUVFMzZFRjUzREEyNiIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PkgXxbAAAAJbSURBVHjapFNNaBNBFH4zs5vdZLP5sQmNpT82QY209heh1ioWisaDRcSKF0WKJ0GQnrzrxasHsR6EnlrwD0TagxJabaVEpFYxLWlLSS822tr87m66ccfd2GKyVhA6MMybgfe97/vmPUQphd0sZjto9XIn9OOsvlu2nkqRzVU+6vvlzPf8W6bk8dxQ0NPbxAALgCgg2JkaQuhzQau/El0zbmUA7U0Es8v2CiYmKQJHGO1QICCLoqilMhkmurDAyapKgqItezi/USRdJqEYY4D5jCy03ht2yMkkvL91jTTX10qzyyu2hruPRN7jgbH+EOsXcMLgYiThEgAMhABW85oqy1DXdRIdvP1AHJ2acQXvDIrVHcdQNrEKNYSVMSZGMjEzIIAwDXIo+6G/FxcGnzkC3T2oMhLjre49sBB+RRcHLqdafK6sYdE/GGBwU1VpFNj0aN8pJbe+BkZyevUrvLl6Xmm0W9IuTc0DxrDNAJd5oEvI/KRsNC3bQyNjPO9yQ1YHcfj2QvfQc/5TUhJTBc2iM0U7AWDQtc1nJHvD/cfO2s7jaGkiTEfa/Ep8coLu7zmNmh8+dc5lZDuUeFAGUNA/OY6JVaypQ0vjr7XYjUvJM37vt+j1vuTK5DgVfVUoTjVe+y3/LxMxY2GgU+CSLy4cpfsYorRXuXIOi0Vt40h67uZFTdIo6nLaZcwUJWAzwNS0tBnqqKzQDnjdG/iPyZxo46HaKUpbvYkj8qYRTZsBhge+JHhZyh0x9b95JqjVJkT084kZIPwu/mPWqPgfQ5jXh2+92Ay7HedfAgwA6KDWafb4w3cAAAAASUVORK5CYII=");background-repeat: no-repeat;background-position: 2px center;}.ace_gutter-cell.ace_warning {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6QUM2OEZDQTg4RTU0MTFFMUEzM0VFRTM2RUY1M0RBMjYiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6QUM2OEZDQTk4RTU0MTFFMUEzM0VFRTM2RUY1M0RBMjYiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDpBQzY4RkNBNjhFNTQxMUUxQTMzRUVFMzZFRjUzREEyNiIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDpBQzY4RkNBNzhFNTQxMUUxQTMzRUVFMzZFRjUzREEyNiIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/Pgd7PfIAAAGmSURBVHjaYvr//z8DJZiJgUIANoCRkREb9gLiSVAaQx4OQM7AAkwd7XU2/v++/rOttdYGEB9dASEvOMydGKfH8Gv/p4XTkvRBfLxeQAP+1cUhXopyvzhP7P/IoSj7g7Mw09cNKO6J1QQ0L4gICPIv/veg/8W+JdFvQNLHVsW9/nmn9zk7B+cCkDwhL7gt6knSZnx9/LuCEOcvkIAMP+cvto9nfqyZmmUAksfnBUtbM60gX/3/kgyv3/xSFOL5DZT+L8vP+Yfh5cvfPvp/xUHyQHXGyAYwgpwBjZYFT3Y1OEl/OfCH4ffv3wzc4iwMvNIsDJ+f/mH4+vIPAxsb631WW0Yln6ZpQLXdMK/DXGDflh+sIv37EivD5x//Gb7+YWT4y86sl7BCCkSD+Z++/1dkvsFRl+HnD1Rvje4F8whjMXmGj58YGf5zsDMwcnAwfPvKcml62DsQDeaDxN+/Y0qwlpEHqrdB94IRNIDUgfgfKJChGK4OikEW3gTiXUB950ASLFAF54AC94A0G9QAfOnmF9DCDzABFqS08IHYDIScdijOjQABBgC+/9awBH96jwAAAABJRU5ErkJggg==");background-position: 2px center;}.ace_gutter-cell.ace_info {background-image: url("data:image/gif;base64,R0lGODlhEAAQAMQAAAAAAEFBQVJSUl5eXmRkZGtra39/f4WFhYmJiZGRkaampry8vMPDw8zMzNXV1dzc3OTk5Orq6vDw8P///wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAkAABQALAAAAAAQABAAAAUuICWOZGmeaBml5XGwFCQSBGyXRSAwtqQIiRuiwIM5BoYVbEFIyGCQoeJGrVptIQA7");background-position: 2px center;}.ace_dark .ace_gutter-cell.ace_info {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoTWFjaW50b3NoKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpGRTk5MTVGREIxNDkxMUUxOTc5Q0FFREQyMTNGMjBFQyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpGRTk5MTVGRUIxNDkxMUUxOTc5Q0FFREQyMTNGMjBFQyI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZFOTkxNUZCQjE0OTExRTE5NzlDQUVERDIxM0YyMEVDIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOkZFOTkxNUZDQjE0OTExRTE5NzlDQUVERDIxM0YyMEVDIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+SIDkjAAAAJ1JREFUeNpi/P//PwMlgImBQkB7A6qrq/+DMC55FkIGKCoq4pVnpFkgTp069f/+/fv/r1u37r+tre1/kg0A+ptn9uzZYLaRkRHpLvjw4cNXWVlZhufPnzOcO3eOdAO0tbVPAjHDmzdvGA4fPsxIsgGSkpJmv379Ynj37h2DjIyMCMkG3LhxQ/T27dsMampqDHZ2dq/pH41DxwCAAAMAFdc68dUsFZgAAAAASUVORK5CYII=");}.ace_scrollbar {position: absolute;overflow-x: hidden;overflow-y: scroll;right: 0;}.ace_scrollbar-inner {position: absolute;width: 1px;left: 0;}.ace_print-margin {position: absolute;height: 100%;}.ace_text-input {position: absolute;z-index: 0;width: 0.5em;height: 1em;opacity: 0;background: transparent;-moz-appearance: none;appearance: none;border: none;resize: none;outline: none;overflow: hidden;}.ace_text-input.ace_composition {background: #fff;color: #000;z-index: 1000;opacity: 1;border: solid lightgray 1px;margin: -1px}.ace_layer {z-index: 1;position: absolute;overflow: hidden;white-space: nowrap;height: 100%;width: 100%;-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;/* setting pointer-events: auto; on node under the mouse, which changesduring scroll, will break mouse wheel scrolling in Safari */pointer-events: none;}.ace_gutter-layer {position: relative;width: auto;text-align: right;pointer-events: auto;}.ace_text-layer {color: black;font: inherit !important;}.ace_cjk {display: inline-block;text-align: center;}.ace_cursor-layer {z-index: 4;}.ace_cursor {z-index: 4;position: absolute;-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;}.ace_hidden-cursors .ace_cursor {opacity: 0.2;}.ace_smooth-blinking .ace_cursor {-moz-transition: opacity 0.18s;-webkit-transition: opacity 0.18s;-o-transition: opacity 0.18s;-ms-transition: opacity 0.18s;transition: opacity 0.18s;}.ace_cursor[style*="opacity: 0"]{-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";}.ace_editor.ace_multiselect .ace_cursor {border-left-width: 1px;}.ace_line {white-space: nowrap;}.ace_marker-layer .ace_step {position: absolute;z-index: 3;}.ace_marker-layer .ace_selection {position: absolute;z-index: 5;}.ace_marker-layer .ace_bracket {position: absolute;z-index: 6;}.ace_marker-layer .ace_active-line {position: absolute;z-index: 2;}.ace_marker-layer .ace_selected-word {position: absolute;z-index: 4;-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;}.ace_line .ace_fold {-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;display: inline-block;height: 11px;margin-top: -2px;vertical-align: middle;background-image:url("data:image/png,%89PNG%0D%0A%1A%0A%00%00%00%0DIHDR%00%00%00%11%00%00%00%09%08%06%00%00%00%D4%E8%C7%0C%00%00%03%1EiCCPICC%20Profile%00%00x%01%85T%DFk%D3P%14%FE%DAe%9D%B0%E1%8B%3Ag%11%09%3Eh%91ndStC%9C%B6kW%BA%CDZ%EA6%B7!H%9B%A6m%5C%9A%C6%24%ED~%B0%07%D9%8Bo%3A%C5w%F1%07%3E%F9%07%0C%D9%83o%7B%92%0D%C6%14a%F8%AC%88%22L%F6%22%B3%9E%9B4M'S%03%B9%F7%BB%DF%F9%EE9'%E7%E4%5E%A0%F9qZ%D3%14%2F%0F%14USO%C5%C2%FC%C4%E4%14%DF%F2%01%5E%1CC%2B%FChM%8B%86%16J%26G%40%0F%D3%B2y%EF%B3%F3%0E%1E%C6lt%EEo%DF%AB%FEc%D5%9A%95%0C%11%F0%1C%20%BE%945%C4%22%E1Y%A0i%5C%D4t%13%E0%D6%89%EF%9D15%C2%CDLsX%A7%04%09%1Fg8oc%81%E1%8C%8D%23%96f45%40%9A%09%C2%07%C5B%3AK%B8%408%98i%E0%F3%0D%D8%CE%81%14%E4'%26%A9%92.%8B%3C%ABER%2F%E5dE%B2%0C%F6%F0%1Fs%83%F2_%B0%A8%94%E9%9B%AD%E7%10%8Dm%9A%19N%D1%7C%8A%DE%1F9%7Dp%8C%E6%00%D5%C1%3F_%18%BDA%B8%9DpX6%E3%A35~B%CD%24%AE%11%26%BD%E7%EEti%98%EDe%9A%97Y)%12%25%1C%24%BCbT%AE3li%E6%0B%03%89%9A%E6%D3%ED%F4P%92%B0%9F4%BF43Y%F3%E3%EDP%95%04%EB1%C5%F5%F6KF%F4%BA%BD%D7%DB%91%93%07%E35%3E%A7)%D6%7F%40%FE%BD%F7%F5r%8A%E5y%92%F0%EB%B4%1E%8D%D5%F4%5B%92%3AV%DB%DB%E4%CD%A6%23%C3%C4wQ%3F%03HB%82%8E%1Cd(%E0%91B%0Ca%9Ac%C4%AA%F8L%16%19%22J%A4%D2itTy%B28%D6%3B(%93%96%ED%1CGx%C9_%0E%B8%5E%16%F5%5B%B2%B8%F6%E0%FB%9E%DD%25%D7%8E%BC%15%85%C5%B7%A3%D8Q%ED%B5%81%E9%BA%B2%13%9A%1B%7Fua%A5%A3n%E17%B9%E5%9B%1Bm%AB%0B%08Q%FE%8A%E5%B1H%5Ee%CAO%82Q%D7u6%E6%90S%97%FCu%0B%CF2%94%EE%25v%12X%0C%BA%AC%F0%5E%F8*l%0AO%85%17%C2%97%BF%D4%C8%CE%DE%AD%11%CB%80q%2C%3E%AB%9ES%CD%C6%EC%25%D2L%D2%EBd%B8%BF%8A%F5B%C6%18%F9%901CZ%9D%BE%24M%9C%8A9%F2%DAP%0B'%06w%82%EB%E6%E2%5C%2F%D7%07%9E%BB%CC%5D%E1%FA%B9%08%AD.r%23%8E%C2%17%F5E%7C!%F0%BE3%BE%3E_%B7o%88a%A7%DB%BE%D3d%EB%A31Z%EB%BB%D3%91%BA%A2%B1z%94%8F%DB'%F6%3D%8E%AA%13%19%B2%B1%BE%B1~V%08%2B%B4%A2cjJ%B3tO%00%03%25mN%97%F3%05%93%EF%11%84%0B%7C%88%AE-%89%8F%ABbW%90O%2B%0Ao%99%0C%5E%97%0CI%AFH%D9.%B0%3B%8F%ED%03%B6S%D6%5D%E6i_s9%F3*p%E9%1B%FD%C3%EB.7U%06%5E%19%C0%D1s.%17%A03u%E4%09%B0%7C%5E%2C%EB%15%DB%1F%3C%9E%B7%80%91%3B%DBc%AD%3Dma%BA%8B%3EV%AB%DBt.%5B%1E%01%BB%0F%AB%D5%9F%CF%AA%D5%DD%E7%E4%7F%0Bx%A3%FC%06%A9%23%0A%D6%C2%A1_2%00%00%00%09pHYs%00%00%0B%13%00%00%0B%13%01%00%9A%9C%18%00%00%00%B5IDAT(%15%A5%91%3D%0E%02!%10%85ac%E1%05%D6%CE%D6%C6%CE%D2%E8%ED%CD%DE%C0%C6%D6N.%E0V%F8%3D%9Ca%891XH%C2%BE%D9y%3F%90!%E6%9C%C3%BFk%E5%011%C6-%F5%C8N%04%DF%BD%FF%89%DFt%83DN%60%3E%F3%AB%A0%DE%1A%5Dg%BE%10Q%97%1B%40%9C%A8o%10%8F%5E%828%B4%1B%60%87%F6%02%26%85%1Ch%1E%C1%2B%5Bk%FF%86%EE%B7j%09%9A%DA%9B%ACe%A3%F9%EC%DA!9%B4%D5%A6%81%86%86%98%CC%3C%5B%40%FA%81%B3%E9%CB%23%94%C16Azo%05%D4%E1%C1%95a%3B%8A'%A0%E8%CC%17%22%85%1D%BA%00%A2%FA%DC%0A%94%D1%D1%8D%8B%3A%84%17B%C7%60%1A%25Z%FC%8D%00%00%00%00IEND%AEB%60%82"),url("data:image/png,%89PNG%0D%0A%1A%0A%00%00%00%0DIHDR%00%00%00%05%00%00%007%08%06%00%00%00%C4%DD%80C%00%00%03%1EiCCPICC%20Profile%00%00x%01%85T%DFk%D3P%14%FE%DAe%9D%B0%E1%8B%3Ag%11%09%3Eh%91ndStC%9C%B6kW%BA%CDZ%EA6%B7!H%9B%A6m%5C%9A%C6%24%ED~%B0%07%D9%8Bo%3A%C5w%F1%07%3E%F9%07%0C%D9%83o%7B%92%0D%C6%14a%F8%AC%88%22L%F6%22%B3%9E%9B4M'S%03%B9%F7%BB%DF%F9%EE9'%E7%E4%5E%A0%F9qZ%D3%14%2F%0F%14USO%C5%C2%FC%C4%E4%14%DF%F2%01%5E%1CC%2B%FChM%8B%86%16J%26G%40%0F%D3%B2y%EF%B3%F3%0E%1E%C6lt%EEo%DF%AB%FEc%D5%9A%95%0C%11%F0%1C%20%BE%945%C4%22%E1Y%A0i%5C%D4t%13%E0%D6%89%EF%9D15%C2%CDLsX%A7%04%09%1Fg8oc%81%E1%8C%8D%23%96f45%40%9A%09%C2%07%C5B%3AK%B8%408%98i%E0%F3%0D%D8%CE%81%14%E4'%26%A9%92.%8B%3C%ABER%2F%E5dE%B2%0C%F6%F0%1Fs%83%F2_%B0%A8%94%E9%9B%AD%E7%10%8Dm%9A%19N%D1%7C%8A%DE%1F9%7Dp%8C%E6%00%D5%C1%3F_%18%BDA%B8%9DpX6%E3%A35~B%CD%24%AE%11%26%BD%E7%EEti%98%EDe%9A%97Y)%12%25%1C%24%BCbT%AE3li%E6%0B%03%89%9A%E6%D3%ED%F4P%92%B0%9F4%BF43Y%F3%E3%EDP%95%04%EB1%C5%F5%F6KF%F4%BA%BD%D7%DB%91%93%07%E35%3E%A7)%D6%7F%40%FE%BD%F7%F5r%8A%E5y%92%F0%EB%B4%1E%8D%D5%F4%5B%92%3AV%DB%DB%E4%CD%A6%23%C3%C4wQ%3F%03HB%82%8E%1Cd(%E0%91B%0Ca%9Ac%C4%AA%F8L%16%19%22J%A4%D2itTy%B28%D6%3B(%93%96%ED%1CGx%C9_%0E%B8%5E%16%F5%5B%B2%B8%F6%E0%FB%9E%DD%25%D7%8E%BC%15%85%C5%B7%A3%D8Q%ED%B5%81%E9%BA%B2%13%9A%1B%7Fua%A5%A3n%E17%B9%E5%9B%1Bm%AB%0B%08Q%FE%8A%E5%B1H%5Ee%CAO%82Q%D7u6%E6%90S%97%FCu%0B%CF2%94%EE%25v%12X%0C%BA%AC%F0%5E%F8*l%0AO%85%17%C2%97%BF%D4%C8%CE%DE%AD%11%CB%80q%2C%3E%AB%9ES%CD%C6%EC%25%D2L%D2%EBd%B8%BF%8A%F5B%C6%18%F9%901CZ%9D%BE%24M%9C%8A9%F2%DAP%0B'%06w%82%EB%E6%E2%5C%2F%D7%07%9E%BB%CC%5D%E1%FA%B9%08%AD.r%23%8E%C2%17%F5E%7C!%F0%BE3%BE%3E_%B7o%88a%A7%DB%BE%D3d%EB%A31Z%EB%BB%D3%91%BA%A2%B1z%94%8F%DB'%F6%3D%8E%AA%13%19%B2%B1%BE%B1~V%08%2B%B4%A2cjJ%B3tO%00%03%25mN%97%F3%05%93%EF%11%84%0B%7C%88%AE-%89%8F%ABbW%90O%2B%0Ao%99%0C%5E%97%0CI%AFH%D9.%B0%3B%8F%ED%03%B6S%D6%5D%E6i_s9%F3*p%E9%1B%FD%C3%EB.7U%06%5E%19%C0%D1s.%17%A03u%E4%09%B0%7C%5E%2C%EB%15%DB%1F%3C%9E%B7%80%91%3B%DBc%AD%3Dma%BA%8B%3EV%AB%DBt.%5B%1E%01%BB%0F%AB%D5%9F%CF%AA%D5%DD%E7%E4%7F%0Bx%A3%FC%06%A9%23%0A%D6%C2%A1_2%00%00%00%09pHYs%00%00%0B%13%00%00%0B%13%01%00%9A%9C%18%00%00%00%3AIDAT8%11c%FC%FF%FF%7F%18%03%1A%60%01%F2%3F%A0%891%80%04%FF%11-%F8%17%9BJ%E2%05%B1ZD%81v%26t%E7%80%F8%A3%82h%A12%1A%20%A3%01%02%0F%01%BA%25%06%00%19%C0%0D%AEF%D5%3ES%00%00%00%00IEND%AEB%60%82");background-repeat: no-repeat, repeat-x;background-position: center center, top left;color: transparent;border: 1px solid black;-moz-border-radius: 2px;-webkit-border-radius: 2px;border-radius: 2px;cursor: pointer;pointer-events: auto;}.ace_dark .ace_fold {}.ace_fold:hover{background-image:url("data:image/png,%89PNG%0D%0A%1A%0A%00%00%00%0DIHDR%00%00%00%11%00%00%00%09%08%06%00%00%00%D4%E8%C7%0C%00%00%03%1EiCCPICC%20Profile%00%00x%01%85T%DFk%D3P%14%FE%DAe%9D%B0%E1%8B%3Ag%11%09%3Eh%91ndStC%9C%B6kW%BA%CDZ%EA6%B7!H%9B%A6m%5C%9A%C6%24%ED~%B0%07%D9%8Bo%3A%C5w%F1%07%3E%F9%07%0C%D9%83o%7B%92%0D%C6%14a%F8%AC%88%22L%F6%22%B3%9E%9B4M'S%03%B9%F7%BB%DF%F9%EE9'%E7%E4%5E%A0%F9qZ%D3%14%2F%0F%14USO%C5%C2%FC%C4%E4%14%DF%F2%01%5E%1CC%2B%FChM%8B%86%16J%26G%40%0F%D3%B2y%EF%B3%F3%0E%1E%C6lt%EEo%DF%AB%FEc%D5%9A%95%0C%11%F0%1C%20%BE%945%C4%22%E1Y%A0i%5C%D4t%13%E0%D6%89%EF%9D15%C2%CDLsX%A7%04%09%1Fg8oc%81%E1%8C%8D%23%96f45%40%9A%09%C2%07%C5B%3AK%B8%408%98i%E0%F3%0D%D8%CE%81%14%E4'%26%A9%92.%8B%3C%ABER%2F%E5dE%B2%0C%F6%F0%1Fs%83%F2_%B0%A8%94%E9%9B%AD%E7%10%8Dm%9A%19N%D1%7C%8A%DE%1F9%7Dp%8C%E6%00%D5%C1%3F_%18%BDA%B8%9DpX6%E3%A35~B%CD%24%AE%11%26%BD%E7%EEti%98%EDe%9A%97Y)%12%25%1C%24%BCbT%AE3li%E6%0B%03%89%9A%E6%D3%ED%F4P%92%B0%9F4%BF43Y%F3%E3%EDP%95%04%EB1%C5%F5%F6KF%F4%BA%BD%D7%DB%91%93%07%E35%3E%A7)%D6%7F%40%FE%BD%F7%F5r%8A%E5y%92%F0%EB%B4%1E%8D%D5%F4%5B%92%3AV%DB%DB%E4%CD%A6%23%C3%C4wQ%3F%03HB%82%8E%1Cd(%E0%91B%0Ca%9Ac%C4%AA%F8L%16%19%22J%A4%D2itTy%B28%D6%3B(%93%96%ED%1CGx%C9_%0E%B8%5E%16%F5%5B%B2%B8%F6%E0%FB%9E%DD%25%D7%8E%BC%15%85%C5%B7%A3%D8Q%ED%B5%81%E9%BA%B2%13%9A%1B%7Fua%A5%A3n%E17%B9%E5%9B%1Bm%AB%0B%08Q%FE%8A%E5%B1H%5Ee%CAO%82Q%D7u6%E6%90S%97%FCu%0B%CF2%94%EE%25v%12X%0C%BA%AC%F0%5E%F8*l%0AO%85%17%C2%97%BF%D4%C8%CE%DE%AD%11%CB%80q%2C%3E%AB%9ES%CD%C6%EC%25%D2L%D2%EBd%B8%BF%8A%F5B%C6%18%F9%901CZ%9D%BE%24M%9C%8A9%F2%DAP%0B'%06w%82%EB%E6%E2%5C%2F%D7%07%9E%BB%CC%5D%E1%FA%B9%08%AD.r%23%8E%C2%17%F5E%7C!%F0%BE3%BE%3E_%B7o%88a%A7%DB%BE%D3d%EB%A31Z%EB%BB%D3%91%BA%A2%B1z%94%8F%DB'%F6%3D%8E%AA%13%19%B2%B1%BE%B1~V%08%2B%B4%A2cjJ%B3tO%00%03%25mN%97%F3%05%93%EF%11%84%0B%7C%88%AE-%89%8F%ABbW%90O%2B%0Ao%99%0C%5E%97%0CI%AFH%D9.%B0%3B%8F%ED%03%B6S%D6%5D%E6i_s9%F3*p%E9%1B%FD%C3%EB.7U%06%5E%19%C0%D1s.%17%A03u%E4%09%B0%7C%5E%2C%EB%15%DB%1F%3C%9E%B7%80%91%3B%DBc%AD%3Dma%BA%8B%3EV%AB%DBt.%5B%1E%01%BB%0F%AB%D5%9F%CF%AA%D5%DD%E7%E4%7F%0Bx%A3%FC%06%A9%23%0A%D6%C2%A1_2%00%00%00%09pHYs%00%00%0B%13%00%00%0B%13%01%00%9A%9C%18%00%00%00%B5IDAT(%15%A5%91%3D%0E%02!%10%85ac%E1%05%D6%CE%D6%C6%CE%D2%E8%ED%CD%DE%C0%C6%D6N.%E0V%F8%3D%9Ca%891XH%C2%BE%D9y%3F%90!%E6%9C%C3%BFk%E5%011%C6-%F5%C8N%04%DF%BD%FF%89%DFt%83DN%60%3E%F3%AB%A0%DE%1A%5Dg%BE%10Q%97%1B%40%9C%A8o%10%8F%5E%828%B4%1B%60%87%F6%02%26%85%1Ch%1E%C1%2B%5Bk%FF%86%EE%B7j%09%9A%DA%9B%ACe%A3%F9%EC%DA!9%B4%D5%A6%81%86%86%98%CC%3C%5B%40%FA%81%B3%E9%CB%23%94%C16Azo%05%D4%E1%C1%95a%3B%8A'%A0%E8%CC%17%22%85%1D%BA%00%A2%FA%DC%0A%94%D1%D1%8D%8B%3A%84%17B%C7%60%1A%25Z%FC%8D%00%00%00%00IEND%AEB%60%82"),url("data:image/png,%89PNG%0D%0A%1A%0A%00%00%00%0DIHDR%00%00%00%05%00%00%007%08%06%00%00%00%C4%DD%80C%00%00%03%1EiCCPICC%20Profile%00%00x%01%85T%DFk%D3P%14%FE%DAe%9D%B0%E1%8B%3Ag%11%09%3Eh%91ndStC%9C%B6kW%BA%CDZ%EA6%B7!H%9B%A6m%5C%9A%C6%24%ED~%B0%07%D9%8Bo%3A%C5w%F1%07%3E%F9%07%0C%D9%83o%7B%92%0D%C6%14a%F8%AC%88%22L%F6%22%B3%9E%9B4M'S%03%B9%F7%BB%DF%F9%EE9'%E7%E4%5E%A0%F9qZ%D3%14%2F%0F%14USO%C5%C2%FC%C4%E4%14%DF%F2%01%5E%1CC%2B%FChM%8B%86%16J%26G%40%0F%D3%B2y%EF%B3%F3%0E%1E%C6lt%EEo%DF%AB%FEc%D5%9A%95%0C%11%F0%1C%20%BE%945%C4%22%E1Y%A0i%5C%D4t%13%E0%D6%89%EF%9D15%C2%CDLsX%A7%04%09%1Fg8oc%81%E1%8C%8D%23%96f45%40%9A%09%C2%07%C5B%3AK%B8%408%98i%E0%F3%0D%D8%CE%81%14%E4'%26%A9%92.%8B%3C%ABER%2F%E5dE%B2%0C%F6%F0%1Fs%83%F2_%B0%A8%94%E9%9B%AD%E7%10%8Dm%9A%19N%D1%7C%8A%DE%1F9%7Dp%8C%E6%00%D5%C1%3F_%18%BDA%B8%9DpX6%E3%A35~B%CD%24%AE%11%26%BD%E7%EEti%98%EDe%9A%97Y)%12%25%1C%24%BCbT%AE3li%E6%0B%03%89%9A%E6%D3%ED%F4P%92%B0%9F4%BF43Y%F3%E3%EDP%95%04%EB1%C5%F5%F6KF%F4%BA%BD%D7%DB%91%93%07%E35%3E%A7)%D6%7F%40%FE%BD%F7%F5r%8A%E5y%92%F0%EB%B4%1E%8D%D5%F4%5B%92%3AV%DB%DB%E4%CD%A6%23%C3%C4wQ%3F%03HB%82%8E%1Cd(%E0%91B%0Ca%9Ac%C4%AA%F8L%16%19%22J%A4%D2itTy%B28%D6%3B(%93%96%ED%1CGx%C9_%0E%B8%5E%16%F5%5B%B2%B8%F6%E0%FB%9E%DD%25%D7%8E%BC%15%85%C5%B7%A3%D8Q%ED%B5%81%E9%BA%B2%13%9A%1B%7Fua%A5%A3n%E17%B9%E5%9B%1Bm%AB%0B%08Q%FE%8A%E5%B1H%5Ee%CAO%82Q%D7u6%E6%90S%97%FCu%0B%CF2%94%EE%25v%12X%0C%BA%AC%F0%5E%F8*l%0AO%85%17%C2%97%BF%D4%C8%CE%DE%AD%11%CB%80q%2C%3E%AB%9ES%CD%C6%EC%25%D2L%D2%EBd%B8%BF%8A%F5B%C6%18%F9%901CZ%9D%BE%24M%9C%8A9%F2%DAP%0B'%06w%82%EB%E6%E2%5C%2F%D7%07%9E%BB%CC%5D%E1%FA%B9%08%AD.r%23%8E%C2%17%F5E%7C!%F0%BE3%BE%3E_%B7o%88a%A7%DB%BE%D3d%EB%A31Z%EB%BB%D3%91%BA%A2%B1z%94%8F%DB'%F6%3D%8E%AA%13%19%B2%B1%BE%B1~V%08%2B%B4%A2cjJ%B3tO%00%03%25mN%97%F3%05%93%EF%11%84%0B%7C%88%AE-%89%8F%ABbW%90O%2B%0Ao%99%0C%5E%97%0CI%AFH%D9.%B0%3B%8F%ED%03%B6S%D6%5D%E6i_s9%F3*p%E9%1B%FD%C3%EB.7U%06%5E%19%C0%D1s.%17%A03u%E4%09%B0%7C%5E%2C%EB%15%DB%1F%3C%9E%B7%80%91%3B%DBc%AD%3Dma%BA%8B%3EV%AB%DBt.%5B%1E%01%BB%0F%AB%D5%9F%CF%AA%D5%DD%E7%E4%7F%0Bx%A3%FC%06%A9%23%0A%D6%C2%A1_2%00%00%00%09pHYs%00%00%0B%13%00%00%0B%13%01%00%9A%9C%18%00%00%003IDAT8%11c%FC%FF%FF%7F%3E%03%1A%60%01%F2%3F%A3%891%80%04%FFQ%26%F8w%C0%B43%A1%DB%0C%E2%8F%0A%A2%85%CAh%80%8C%06%08%3C%04%E8%96%18%00%A3S%0D%CD%CF%D8%C1%9D%00%00%00%00IEND%AEB%60%82");background-repeat: no-repeat, repeat-x;background-position: center center, top left;}.ace_editor.ace_dragging .ace_content {cursor: move;}.ace_gutter-tooltip {background-color: #FFFFD5;border: 1px solid gray;box-shadow: 0 1px 1px rgba(0, 0, 0, 0.4);color: black;display: inline-block;padding: 4px;position: absolute;z-index: 300;-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;cursor: default;white-space: pre-line;word-wrap: break-word;}.ace_folding-enabled > .ace_gutter-cell {padding-right: 13px;}.ace_fold-widget {-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;margin: 0 -12px 0 1px;display: inline-block;width: 11px;vertical-align: top;background-image: url("data:image/png,%89PNG%0D%0A%1A%0A%00%00%00%0DIHDR%00%00%00%05%00%00%00%05%08%06%00%00%00%8Do%26%E5%00%00%004IDATx%DAe%8A%B1%0D%000%0C%C2%F2%2CK%96%BC%D0%8F9%81%88H%E9%D0%0E%96%C0%10%92%3E%02%80%5E%82%E4%A9*-%EEsw%C8%CC%11%EE%96w%D8%DC%E9*Eh%0C%151(%00%00%00%00IEND%AEB%60%82");background-repeat: no-repeat;background-position: center;border-radius: 3px;border: 1px solid transparent;}.ace_fold-widget.ace_end {background-image: url("data:image/png,%89PNG%0D%0A%1A%0A%00%00%00%0DIHDR%00%00%00%05%00%00%00%05%08%06%00%00%00%8Do%26%E5%00%00%004IDATx%DAm%C7%C1%09%000%08C%D1%8C%ECE%C8E(%8E%EC%02)%1EZJ%F1%C1'%04%07I%E1%E5%EE%CAL%F5%A2%99%99%22%E2%D6%1FU%B5%FE0%D9x%A7%26Wz5%0E%D5%00%00%00%00IEND%AEB%60%82");}.ace_fold-widget.ace_closed {background-image: url("data:image/png,%89PNG%0D%0A%1A%0A%00%00%00%0DIHDR%00%00%00%03%00%00%00%06%08%06%00%00%00%06%E5%24%0C%00%00%009IDATx%DA5%CA%C1%09%000%08%03%C0%AC*(%3E%04%C1%0D%BA%B1%23%A4Uh%E0%20%81%C0%CC%F8%82%81%AA%A2%AArGfr%88%08%11%11%1C%DD%7D%E0%EE%5B%F6%F6%CB%B8%05Q%2F%E9tai%D9%00%00%00%00IEND%AEB%60%82");}.ace_fold-widget:hover {border: 1px solid rgba(0, 0, 0, 0.3);background-color: rgba(255, 255, 255, 0.2);-moz-box-shadow: 0 1px 1px rgba(255, 255, 255, 0.7);-webkit-box-shadow: 0 1px 1px rgba(255, 255, 255, 0.7);box-shadow: 0 1px 1px rgba(255, 255, 255, 0.7);}.ace_fold-widget:active {border: 1px solid rgba(0, 0, 0, 0.4);background-color: rgba(0, 0, 0, 0.05);-moz-box-shadow: 0 1px 1px rgba(255, 255, 255, 0.8);-webkit-box-shadow: 0 1px 1px rgba(255, 255, 255, 0.8);box-shadow: 0 1px 1px rgba(255, 255, 255, 0.8);}/*** Dark version for fold widgets*/.ace_dark .ace_fold-widget {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHklEQVQIW2P4//8/AzoGEQ7oGCaLLAhWiSwB146BAQCSTPYocqT0AAAAAElFTkSuQmCC");}.ace_dark .ace_fold-widget.ace_end {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAH0lEQVQIW2P4//8/AxQ7wNjIAjDMgC4AxjCVKBirIAAF0kz2rlhxpAAAAABJRU5ErkJggg==");}.ace_dark .ace_fold-widget.ace_closed {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAAHElEQVQIW2P4//+/AxAzgDADlOOAznHAKgPWAwARji8UIDTfQQAAAABJRU5ErkJggg==");}.ace_dark .ace_fold-widget:hover {box-shadow: 0 1px 1px rgba(255, 255, 255, 0.2);background-color: rgba(255, 255, 255, 0.1);}.ace_dark .ace_fold-widget:active {-moz-box-shadow: 0 1px 1px rgba(255, 255, 255, 0.2);-webkit-box-shadow: 0 1px 1px rgba(255, 255, 255, 0.2);box-shadow: 0 1px 1px rgba(255, 255, 255, 0.2);}.ace_fold-widget.ace_invalid {background-color: #FFB4B4;border-color: #DE5555;}.ace_fade-fold-widgets .ace_fold-widget {-moz-transition: opacity 0.4s ease 0.05s;-webkit-transition: opacity 0.4s ease 0.05s;-o-transition: opacity 0.4s ease 0.05s;-ms-transition: opacity 0.4s ease 0.05s;transition: opacity 0.4s ease 0.05s;opacity: 0;}.ace_fade-fold-widgets:hover .ace_fold-widget {-moz-transition: opacity 0.05s ease 0.05s;-webkit-transition: opacity 0.05s ease 0.05s;-o-transition: opacity 0.05s ease 0.05s;-ms-transition: opacity 0.05s ease 0.05s;transition: opacity 0.05s ease 0.05s;opacity:1;}.ace_underline {text-decoration: underline;}.ace_bold {font-weight: bold;}.ace_nobold .ace_bold {font-weight: normal;}.ace_italic {font-style: italic;}</style><style id="ace-tm">.ace-tm .ace_gutter {background: #f0f0f0;color: #333;}.ace-tm .ace_print-margin {width: 1px;background: #e8e8e8;}.ace-tm .ace_fold {background-color: #6B72E6;}.ace-tm .ace_scroller {background-color: #FFFFFF;}.ace-tm .ace_cursor {border-left: 2px solid black;}.ace-tm .ace_overwrite-cursors .ace_cursor {border-left: 0px;border-bottom: 1px solid black;}.ace-tm .ace_invisible {color: rgb(191, 191, 191);}.ace-tm .ace_storage,.ace-tm .ace_keyword {color: blue;}.ace-tm .ace_constant {color: rgb(197, 6, 11);}.ace-tm .ace_constant.ace_buildin {color: rgb(88, 72, 246);}.ace-tm .ace_constant.ace_language {color: rgb(88, 92, 246);}.ace-tm .ace_constant.ace_library {color: rgb(6, 150, 14);}.ace-tm .ace_invalid {background-color: rgba(255, 0, 0, 0.1);color: red;}.ace-tm .ace_support.ace_function {color: rgb(60, 76, 114);}.ace-tm .ace_support.ace_constant {color: rgb(6, 150, 14);}.ace-tm .ace_support.ace_type,.ace-tm .ace_support.ace_class {color: rgb(109, 121, 222);}.ace-tm .ace_keyword.ace_operator {color: rgb(104, 118, 135);}.ace-tm .ace_string {color: rgb(3, 106, 7);}.ace-tm .ace_comment {color: rgb(76, 136, 107);}.ace-tm .ace_comment.ace_doc {color: rgb(0, 102, 255);}.ace-tm .ace_comment.ace_doc.ace_tag {color: rgb(128, 159, 191);}.ace-tm .ace_constant.ace_numeric {color: rgb(0, 0, 205);}.ace-tm .ace_variable {color: rgb(49, 132, 149);}.ace-tm .ace_xml-pe {color: rgb(104, 104, 91);}.ace-tm .ace_entity.ace_name.ace_function {color: #0000A2;}.ace-tm .ace_markup.ace_heading {color: rgb(12, 7, 255);}.ace-tm .ace_markup.ace_list {color:rgb(185, 6, 144);}.ace-tm .ace_meta.ace_tag {color:rgb(0, 22, 142);}.ace-tm .ace_string.ace_regex {color: rgb(255, 0, 0)}.ace-tm .ace_marker-layer .ace_selection {background: rgb(181, 213, 255);}.ace-tm.ace_multiselect .ace_selection.ace_start {box-shadow: 0 0 3px 0px white;border-radius: 2px;}.ace-tm .ace_marker-layer .ace_step {background: rgb(252, 255, 0);}.ace-tm .ace_marker-layer .ace_stack {background: rgb(164, 229, 101);}.ace-tm .ace_marker-layer .ace_bracket {margin: -1px 0 0 -1px;border: 1px solid rgb(192, 192, 192);}.ace-tm .ace_marker-layer .ace_active-line {background: rgba(0, 0, 0, 0.07);}.ace-tm .ace_gutter-active-line {background-color : #dcdcdc;}.ace-tm .ace_marker-layer .ace_selected-word {background: rgb(250, 250, 255);border: 1px solid rgb(200, 200, 250);}.ace-tm .ace_indent-guide {background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAAE0lEQVQImWP4////f4bLly//BwAmVgd1/w11/gAAAABJRU5ErkJggg==") right repeat-y;}</style><style id="ace-monokai">.ace-monokai .ace_gutter {background: #2f3129;color: #f1f1f1}.ace-monokai .ace_print-margin {width: 1px;background: #555651}.ace-monokai .ace_scroller {background-color: #272822}.ace-monokai .ace_text-layer {color: #F8F8F2}.ace-monokai .ace_cursor {border-left: 2px solid #F8F8F0}.ace-monokai .ace_overwrite-cursors .ace_cursor {border-left: 0px;border-bottom: 1px solid #F8F8F0}.ace-monokai .ace_marker-layer .ace_selection {background: #49483E}.ace-monokai.ace_multiselect .ace_selection.ace_start {box-shadow: 0 0 3px 0px #272822;border-radius: 2px}.ace-monokai .ace_marker-layer .ace_step {background: rgb(102, 82, 0)}.ace-monokai .ace_marker-layer .ace_bracket {margin: -1px 0 0 -1px;border: 1px solid #49483E}.ace-monokai .ace_marker-layer .ace_active-line {background: #202020}.ace-monokai .ace_gutter-active-line {background-color: #272727}.ace-monokai .ace_marker-layer .ace_selected-word {border: 1px solid #49483E}.ace-monokai .ace_invisible {color: #49483E}.ace-monokai .ace_entity.ace_name.ace_tag,.ace-monokai .ace_keyword,.ace-monokai .ace_meta,.ace-monokai .ace_storage {color: #F92672}.ace-monokai .ace_constant.ace_character,.ace-monokai .ace_constant.ace_language,.ace-monokai .ace_constant.ace_numeric,.ace-monokai .ace_constant.ace_other {color: #AE81FF}.ace-monokai .ace_invalid {color: #F8F8F0;background-color: #F92672}.ace-monokai .ace_invalid.ace_deprecated {color: #F8F8F0;background-color: #AE81FF}.ace-monokai .ace_support.ace_constant,.ace-monokai .ace_support.ace_function {color: #66D9EF}.ace-monokai .ace_fold {background-color: #A6E22E;border-color: #F8F8F2}.ace-monokai .ace_storage.ace_type,.ace-monokai .ace_support.ace_class,.ace-monokai .ace_support.ace_type {font-style: italic;color: #66D9EF}.ace-monokai .ace_entity.ace_name.ace_function,.ace-monokai .ace_entity.ace_other,.ace-monokai .ace_variable {color: #A6E22E}.ace-monokai .ace_variable.ace_parameter {font-style: italic;color: #FD971F}.ace-monokai .ace_string {color: #E6DB74}.ace-monokai .ace_comment {color: #75715E}.ace-monokai .ace_markup.ace_underline {text-decoration: underline}.ace-monokai .ace_indent-guide {background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAAEklEQVQImWNQ11D6z7Bq1ar/ABCKBG6g04U2AAAAAElFTkSuQmCC) right repeat-y}</style></head>
+  <body>
+<input type="hidden" name="csrfmiddlewaretoken" value="VEgb3Khk5mcxUeaKKAQsvC22aL1ebNn4">
+    
+    <link href="./Wakari_files/application.css" rel="stylesheet" type="text/css">
+    
+    <div id="navbar"><div><div class="navbar navbar-inverse navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="row-fluid">
+      <div id="nav-session">
+        <ul class="nav">
+          <li>
+            <div id="brand">
+              <a href="./Wakari_files/Wakari.html"><i class="icon-adjust"></i> Wakari </a>
+            </div>
+          </li>
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="https://wakari.io/wakari#">
+            
+              <img src="./Wakari_files/greendot.png">
+              Auto Shutdown
+            
+              <b class="caret"></b>
+            </a>
+            <ul class="header-dropdown dropdown-menu">
+              
+              <li class="session-info">
+                <a href="https://wakari.io/wakari#" class="persistentbutton enable-link">
+                  <b>Enable Session Keep Alive...</b>
+                
+                  <div class="session-item">Billing rate: $0/hr</div>
+                
+                  
+                </a>
+              </li>
+              
+              <li><a class="session-learnmore" href="https://wakari.io/wakari#"><b>Learn more...</b></a></li>
+              <li class="current-session-info">
+                <div><b>Current Session Mode:</b></div>
+              
+                <div class="session-item"><b>Auto Shutdown is Enabled</b>.</div>
+                <div class="session-item">Your session will be shutdown after you logout of Wakari or the browser is disconnected.</div>
+                <div class="session-item"><b>All jobs will be terminated.</b></div>
+              
+              </li>
+            </ul>
+          </li>
+
+          <li class="active">
+          	<a href="https://wakari.io/wakari#shareModal" id="shareBtn" role="button" data-toggle="modal">Share</a>
+          </li>
+          <li class="divider"></li>
+          <li class="active">
+            <a class="link" href="http://enterprise.wakari.io/" target="_blank" style="color:yellow; padding-left:20px">Run Wakari in Your Data Center</a></li>
+          
+        </ul>
+      </div>
+
+      <!-- Links -->
+      <div id="links">
+        <ul class="nav">
+          <li class="active">
+            <button class="btn btn-primary btn-small newnotebook">
+              New Notebook
+            </button>
+          </li>                        
+          <li class="dropdown active">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="https://wakari.io/wakari#">
+              View<b class="caret"></b>
+            </a>
+            <ul class="header-dropdown dropdown-menu pull-right">
+              <li>
+                <a href="./Wakari_files/Wakari.html">Workbench</a>
+              </li>          
+              <li>
+                <a href="https://wakari.io/notebook">Notebooks</a>
+              </li>
+              <li>
+                <a href="https://wakari.io/gallery" target="_blank">Notebook Gallery</a>
+              </li>          
+              
+              <li>
+                <a href="https://wakari.io/wakari#" id="mergepanes">Merge Panes</a>
+              </li>
+              
+              <li>
+                <a href="https://wakari.io/wakari#" id="toggleBrowserBtn">Toggle File Browser</a>
+              </li>
+            </ul>
+          </li>
+          <li class="dropdown active">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="https://wakari.io/wakari#">
+              Tools<b class="caret"></b>
+            </a>
+            <ul class="header-dropdown dropdown-menu pull-right">
+              <li>
+                <a href="https://wakari.io/wakari#" class="databrowserlink">Wakari Data Sources</a>
+              </li>
+              <li>
+                <a href="https://wakari.io/wakari#" class="envbrowserlink">Anaconda Environments</a>
+              </li>
+            </ul>
+          </li>
+          <li class="dropdown active">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="https://wakari.io/wakari#">
+              Help<b class="caret"></b>
+            </a>
+            <ul class="header-dropdown dropdown-menu pull-right">
+              <li>
+                <small>&nbsp;&nbsp;<u><i>Documentation</i></u></small>
+              </li>
+              <li>
+                <a href="https://wakari.io/docs/" target="_blank">Wakari Analytics Environment</a>
+              </li>
+              <li><a href="http://docs.continuum.io/" target="_blank">Anaconda Python Distribution</a></li>
+              <li class="divider"></li>
+              <li>
+                <small>&nbsp;&nbsp;<u><i>Contact Us</i></u></small>
+              </li>
+              <li><a href="mailto:wakari_support@continuum.io?subject=%27Help%20with%20Wakari%27">Contact Support</a></li>
+              <li>
+                <!-- HelpOnClick -->
+                <a href="javascript:void(0)" onclick="window.open(&quot;http://app.helponclick.com/help?lang=en&amp;w=510ff3fe-6c84-46b6-9db7-05d8b86a9e52&amp;d=510bed10-17d4-4321-8753-05cdb86a9e52&quot;,&quot;hoc_chat_login&quot;,&quot;width=720,height=550,scrollbars=no,status=0,toolbar=no,location=no,resizable=no&quot;)">Live Chat</a>
+                <!-- /HelpOnClick -->
+              </li>
+            </ul>
+          </li>
+          <li class="dropdown active">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="https://wakari.io/wakari#">
+              aybukedalgic<b class="caret"></b>
+            </a>
+            <ul class="header-dropdown dropdown-menu pull-right">
+              <li><a class="sshlink" href="https://wakari.io/wakari#">SSH Access</a></li>              
+              <li><a href="https://wakari.io/usermgmt/settings">Settings</a></li>            
+              <li><a class="restartcontainer">Restart</a></li>
+              <li><a href="https://wakari.io/usermgmt/logout">Logout</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="sessionLearnMore" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">x</button>
+        <h3 id="modalTitle">Wakari Sessions</h3>
+      </div>
+      <div id="modalBody" class="modal-body">
+        <p>A Wakari session can operate in one of two modes.</p>
+        <p>The default mode is <b>Auto Shutdown</b>.  After an idle period or logout, the session will be terminated and all running jobs will be stopped.</p>
+        <p>The second mode is <b>Keep Alive</b>.  The session will <b>NOT</b> be terminated, even when the user logs out.  Since your session is not shutdown, your jobs will continue to run until they complete.  Note, your session will stay active until you switch it back to Auto Shutdown mode.</p>
+        <table class="table table-bordered table-condensed">
+          <tbody><tr><th>Session Mode</th><th>Cost</th></tr>
+          </tbody><tbody>
+          <tr><td>Auto Shutdown</td><td>Free</td></tr>
+          <tr><td>Keep Alive</td><td>Per minute charges apply.</td></tr>
+          </tbody>
+        </table>
+        <p>When you login to Wakari a "session" is either created or you are attached to an existing session that was created from a previous login.</p>
+        <p>Sessions <b>will shutdown</b> if not used for a period of time or after you logout.  When a session is shutdown all underlying processes are stopped.</p>
+        <p>However, it is possible to <b>keep a session alive</b> between logins.  Wakari paid accounts provide the option for users to set their session to a <b>keep alive mode</b>.  It is important to note that when a session is in the keep alive state the user's account will <b>charged per minute for the session time</b>.</p>
+        <p>The primary purpose for keeping your session alive is to run jobs that may take significant time to run.  You can start the job, log off and then return later to check your results.</p>
+        <p>Your account will continue to be charged until you login and switch your session back to <b>auto shutdown mode</b>.</p>
+      </div>
+      <div id="modalFooter" class="modal-footer">
+        <a id="modalCancelBtn" href="https://wakari.io/wakari#" class="btn" data-dismiss="modal">Close</a>
+      </div>
+</div>
+<div id="shareModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">x</button>
+        <h3 id="modalTitle">Share</h3>
+      </div>
+      <div id="modalBody" class="modal-body">
+        <p>With Wakari you can create bundles and share them with other users.  A bundle may contain a single IPython notebook or
+        a directory with multiple notebooks.</p>
+        <p>To create a bundle, select a file or directory in the file browser and then click on the share button in the file browser toolbar.</p>
+        <p><img src="./Wakari_files/share_button.png"></p>
+        <p>You may also see a list of bundles you have created in <a href="https://wakari.io/settings/sharing">Settings -&gt; Sharing</a></p> 
+      </div>
+      <div id="modalFooter" class="modal-footer">
+        <a id="modalCancelBtn" href="https://wakari.io/wakari#" class="btn" data-dismiss="modal">Close</a>
+      </div>
+</div>
+
+
+</div></div>
+    
+<!-- begin script_block -->
+
+<script type="text/javascript" src="./Wakari_files/application.js"></script>
+
+
+<script>
+  rrequire("./index");
+</script>
+
+<script type="text/javascript">
+  $(function() {
+    $("#alRoot").splitter({ sizeLeft: 260, resizeToWidth: true });
+  });
+</script>
+<!-- Google Code for Wakari SignUp Conversion Page -->
+<script type="text/javascript">
+/* <![CDATA[ */
+var google_conversion_id = 996598289;
+var google_conversion_language = "en";
+var google_conversion_format = "3";
+var google_conversion_color = "ffffff";
+var google_conversion_label = "kJThCJeS6xcQkcSb2wM";
+var google_conversion_value = 0;
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Wakari_files/conversion.js">
+</script><img height="1" width="1" border="0" alt="" src="./Wakari_files/saved_resource">
+<noscript>
+&lt;div style="display:inline;"&gt;
+&lt;img height="1" width="1" style="border-style:none;" alt="" src="//www.googleadservices.com/pagead/conversion/996598289/?value=0&amp;amp;label=kJThCJeS6xcQkcSb2wM&amp;amp;guid=ON&amp;amp;script=0"/&gt;
+&lt;/div&gt;
+</noscript>
+
+<!-- end script_block -->
+
+
+
+<script type="text/javascript" charset="utf-8">
+  window.WAKARI_HOMEDIR = "/user_home/w_aybukedalgic";
+  window.username = "aybukedalgic";  
+</script>
+<script type="text/template" id="helpinfo">
+  <h4>
+Welcome To Wakari
+</h4>
+<h5>Overview</h5>
+<p>
+Wakari is Continuum Analytics' hosted data analysis environment.  We want to take care of all the boring stuff you don't want to think about, like managing servers, python environments, and data.
+<p>
+<p>
+On the left we have a side panel, which includes views of private and public data, your scripts, your python environments, plots, and this help document.
+
+<img class="docscreenshot" style="width:50%" src="/git_static/461296a7f900ef1aa6960f8020728f585d4a8dc0/img/data-pane.png"/>
+</p>
+<p>
+In the middle, we have the editor pane, which is a full featured editor with syntax highlighting that allows you to edit files on the remote file system.
+<img class="docscreenshot" style="width:50%" src="/git_static/461296a7f900ef1aa6960f8020728f585d4a8dc0/img/editor-pane.png"/>
+On the right we have the terminal pane, which allows you to start unix shells, python and ipython shells in a variety of python environments and an ipython notebook.
+<img class="docscreenshot" style="width:50%" src="/git_static/461296a7f900ef1aa6960f8020728f585d4a8dc0/img/terminal-pane.png"/>
+In the top in the center we have toggle buttons which allow you to show and hide the various panes as you see fit for your work.
+</p>
+        <center>
+          <div  class="btn-group togglegroup">
+            <a class="btn btn-small" title="Toggle browser pane - Ctrl-1" id="toggleBrowserBtn">
+              sidebar
+            </a>
+            <a class="btn btn-small" title="Toggle editor pane - Ctrl-2" id="toggleEditorBtn">
+              editor
+            </a>
+            <a class="btn btn-small" title="Toggle terminal pane - Ctrl-3" id="toggleTerminalBtn">
+              shell
+            </a>
+          </div>
+        </center>
+<h5>Working with Scripts</h5>
+<p>
+In the sidepane there is a scripts tab, which allows you to navigate your scripts folder and work with the files you have created.
+<img class="docscreenshot" style="width:50%" src="/git_static/461296a7f900ef1aa6960f8020728f585d4a8dc0/img/scripts-browser.png"/>
+Clicking files in the scripts tab will select them.  Double clicking files in the scripts tab will open them up in the editor.
+</p>
+<p>
+In the center is a tabbed editor.  There you can create new files, as well as execute the currently open file in an ipython terminal.  The ipython terminal will remain in interactive mode after execution.
+</p>
+<h5>Working with Data</h5>
+<p>
+In the sidepane there is a data tab, which allows you to work with private and public data.  The private data pane allows you to upload data files from your machine into your workspace, as well as browse the data files you have currently uploaded.
+<img class="docscreenshot" style="width:50%" src="/git_static/461296a7f900ef1aa6960f8020728f585d4a8dc0/img/data-pane.png"/>
+</p>
+<p>
+In the public data section, documentation on the data source and example code for Wakari's public data module: wakaridata, are provided.
+</p>
+<img class="docscreenshot" style="width:50%" src="/git_static/461296a7f900ef1aa6960f8020728f585d4a8dc0/img/public-data.png"/>
+<div id="plotdocs">
+<h5>Plotting</h5>
+Wakari supports two methods of plotting.  One is plotting with the ipython notebook using <a href="http://matplotlib.org/index.html">matplotlib</a>.  
+<img class="docscreenshot" style="width:50%" src="/git_static/461296a7f900ef1aa6960f8020728f585d4a8dc0/img/notebook-plot.png"/>
+The second is our custom interactive plotting library. 
+In your scripts directory, 
+you'll find a file, webplot.py which has been generated for you using
+your wakari plotting API keys.  Current functionality is limited to 
+line plots and scatter plots.  The interface is similar to matplotlib.
+<img class="docscreenshot" style="width:50%" src="/git_static/461296a7f900ef1aa6960f8020728f585d4a8dc0/img/webplot.png"/>
+<pre>
+from webplot import p
+</pre>
+<p>
+This line will import the plotting client which can plot to your web browser.
+p.plot is the main function for plotting data, it resembles the matplotlib.plot command:
+<pre>
+p.plot(y)             # plots y as a lineplot
+p.plot(x, y)          # plots y as a line plot with respect ot x
+p.plot(x, y, 'green') # using a green line
+</pre>
+Similar to matplotlib, y can be a 2d array, in which case each column is 
+plotted.
+</p>
+<p>
+We default to having subsequent plotting commands render to the last completed plot.  You can create a new plot by calling 
+p.figure.  We also support matplotlib conventions for toggling the hold mode.
+<pre>
+p.figure()          # subsequent commands plot to a new plot
+p.hold('on')        # default to plotting to the current plot
+p.hold('off')       # default to plotting to new plot
+p.hold(True)        # default to plotting to the current plot
+p.hold(False)       # default to plotting to new plot
+</pre>
+</p>
+<p>
+A key feature of plotting in wakari is interactivity.  Clicking the pan and select tools will allow you to pan and select the plot using the mouse.  The mouse wheel will also allow you to zoom in and out.  For advanced users, shift + mouse will pan, ctrl + mouse will select.
+</p>
+<p>
+In Wakari's plotting library, we introduce the notion of a data source.  A data source is a collection of columns which are joined into records.  Interactivity is much more powerful when you link plots to data sources.  Selecting on a data source will render that selection in each plot or table which is viewing it.
+</p>
+<img class="docscreenshot" style="width:50%" src="/git_static/461296a7f900ef1aa6960f8020728f585d4a8dc0/img/linked-brushing.png"/>
+<pre>
+"""
+Create a data source, and then 2 line plots which point at that data source.
+Selections will propagate across plots. Finally, create a table which views
+the data source
+"""
+source = p.make_source(x=x, y=y, z=z)
+p.plot('x', 'y', data_source=source)
+p.figure()
+p.plot('x', 'z', data_source=source)
+p.table(source, ['x', 'y', 'z'])
+</pre>
+
+<h6>Other interesting options</h6>
+<p>
+<pre>
+p.plot(x, y, width=300, height=300)
+</pre>
+You can pass width or height into each plot specified in pixels.
+<pre>
+p.scatter(x, y)
+</pre>
+p.scatter has the same syntax as p.plot, however it will generate a 
+scatter plot (Basically the same thing, except without connecting the dots).
+<pre>
+p.plot_dates(x, y)
+</pre>
+p.plot_dates will treat the x axis as a date axis.  We currently expect dates to be milliseconds since the epoch.
+</p>
+</div>
+<h5>Terminals</h5>
+<p>
+The terminal pane allows you to use multiple terminals in different tabs.  It also includes an environment drop down if the type of terminal you wish to use supports it.  Choosing an environment in the environment drop down will set the python environment.  Currently we supported python 2.6, 2.7, and 3.3, as well as numpy versions 1.5, 1.6, and 1.7.
+<img class="docscreenshot" style="width:50%" src="/git_static/461296a7f900ef1aa6960f8020728f585d4a8dc0/img/terminal-pane.png"/>
+</p>
+<p>
+One terminal option is the IPython notebook.  We start a notebook server for you every time you login to wakari.  The password that is used in the IPython notebook is the same password you use to login to wakari.
+<img class="docscreenshot" style="width:50%" src="/git_static/461296a7f900ef1aa6960f8020728f585d4a8dc0/img/notebook-plot.png"/>
+</p>
+<div style="height:300px"/>
+  
+</script>
+<script type="text/template" id="data-browser-template">
+  <div id="dataBrowserDiv">
+    <p>Data browser placeholder</p>
+  </div>
+</script>
+
+
+<script type="text/template" id="scripts-browser-template">
+  <div>
+    <p>Scripts browser placeholder</p>
+  </div>
+</script>
+
+<script type="text/template" id="pyenvs-browser-template">
+  <div>
+    <p>PyEnvs browser placeholder</p>
+  </div>
+</script>
+
+<div id="backbonemodal" class="modal hide" aria-hidden="true" style="display: none;"><div class="modal-header">
+  <button type="button" class="close" data-dismiss="modal">x</button>
+  <h3 id="modalTitle">Loading</h3>
+</div>
+<div id="modalBody" class="modal-body">
+  
+  <p>One moment while your environment is loaded...</p>
+  
+  
+</div>
+<div id="modalFooter" class="modal-footer">
+  
+</div></div>
+
+<script type="text/template" id="notebook-template">
+  <div class="notebook_iframe_wrapper">
+    <iframe id="" class="notebookiframe" src="<%= url %>">
+    </iframe>
+  </div>
+</script>
+
+<script type="text/template" id="terminal-tab-template">
+  <span>
+    <a href="javascript:$AL.selectTerminal(<%= termNum %>)">
+      <%= tabTitle %>
+    </a>
+  </span>
+  <span>
+    <a href="javascript:$AL.closeTab(<%= termNum %>)">
+      <i class="icon"></i>
+    </a>
+  </span>
+</script>
+
+<script type="text/template" id="env-template">
+  <div id="defaultPane" class="al-env-content">
+    <h3 class="al-tab-h3">Environments</h3>
+    <p class="envNote">The default environments include a unique version of Python and NumPy, along with various versions of other packages.</p>
+    <div>
+      <p>Select the environment you wish to view:</p>
+      <select id="envSelect"></select>
+      <select id="envOpSelect">
+        <option value="reset">Reset</option>
+        <option value="resetall">Reset All</option>
+      </select>
+      <button id="envGo" class="btn btn-primary">Go</button>
+      <button id="envRefresh" class="btn" title="Refresh Env List">
+        <i class="icon-white icon-refresh"></i>
+      </button>
+      <div id="envMsg" style="display:none">Message</div>
+    </div>
+    <div id="envPathDiv" class="alert alert-success al-path-alert">
+      Path: <span id="envPath"></span>
+    </div>
+    <div class="well">
+      <p class="envNote">Note, custom packages that are not installed via conda will not show in the package list below.</p>
+      <div id="envTableDiv"></div>
+    </div>
+  </div>
+</script>
+
+<script type="text/template" id="envselecttemplate">
+  <% _.each(optgroups, function(optgroup){ %>
+  <optgroup id="<%= optgroup.optgroupid %>" label="<%= optgroup.optgrouplabel%>">
+    <% _.each(optgroup.options, function(option){ %>
+    <option id="<%= option.optionid %>" value="<%= option.optionvalue %>"><%= option.optionlabel %></option>
+    <% }); %>
+  </optgroup>
+  <% }); %>
+</script>
+
+<script type="text/template" id="env-optgroup-template">
+  <optgroup id="<%= id %>" label="<%= val %>"></optgroup>
+</script>
+
+<script type="text/template" id="env-option-template">
+  <option id="id-<%= val %>" value="<%= val %>"><%= ele %></option>
+</script>
+
+<script type="text/template" id="env-package-table">
+  <table id="envTable" class="table table-striped table-condensed al-env-table">
+    <thead><th>Package</th><th>Version</th>
+  </table>
+</script>
+
+<script type="text/template" id="env-package-row">
+  <tr><td><%= p %></td><td><%= v %></td>
+</script>
+
+<script type="text/template" id="env-addenv-pro-template">
+  <div class="container-fluid tab-main env-addenv-pro"
+       <div class="span12" class="top-div">
+         <div class="btn-group pull-right">
+           <button id="addEnvCloseBtn" class="btn btn-mini btn-inverse">
+             <i class="icon-remove"></i>
+             &nbsp;Cancel
+           </button>
+         </div>
+         <div class="span12">
+           <h2 class="al-tab-h2">Add an Anaconda Environment</h2>
+           <p>Each environment includes a unique combination of packages. Follow these steps to create a new environment.</p>
+           <ol>
+             <li>Enter a unique name in the Name field.</li>
+             <li>Select the Python version.</li>
+             <li>Select the packages to be included in the environment (note, if a package has dependencies then the dependencies will automatically be selected).</li>
+             <li>
+               Press this
+               <button class="btn btn-primary btn-mini" id="addEnvSaveBtn">Create New Environment</button>
+             </li>
+           </ol>
+           <hr>
+         </div>
+         <div class="span12">
+           <div class="span4">
+             <h2>Environment Name</h2>
+             <input type="text" id="addEnvName" required pattern="[a-zA-Z0-9]+" title="Alphanumeric values only."></input>
+             <a id="addEnvNameHelp" data-toggle href="#"><i class="icon-question-sign"></i></a>
+           </div>
+           <div class="span4">
+             <h2>Python Version</h2>
+             <select id="addEnvPython">
+               <option value="" selected="selected">-- Select a Version --</option>
+             </select>
+             <a id="addEnvPythonHelp" data-toggle href="#"><i class="icon-question-sign"></i></a>
+           </div>
+         </div>
+         <div class="span11">
+           <h2>Packages</h2>
+           <div id="addEnvPackageDiv" class="well">
+             <p>Select a Python version to cause the package list to be populated.</p>
+           </div>
+           <p align="center">
+             <button class="btn btn-primary" id="addEnvSaveBtn">Create New Environment</button>
+           </p>
+         </div>
+       </div>
+</div>
+</script>
+
+<script type="text/template" id="env-addenv-required-template">
+  <div class="alert alert-success">
+    <h4><%= title %></h4>
+    <span><%= str %></span>
+  </div>
+</script>
+
+<script type="text/template" id="env-addenv-optional-template">
+  <div id="addEnvOpt" class="alert alert-success">
+    <div class="btn-group pull-right">
+      <button id="addEnvClearBtn" class="btn btn-mini">
+        Clear All
+      </button>
+      <button id="addEnvSelectBtn" class="btn btn-inverse btn-mini">
+        Select All
+      </button>
+    </div>
+    <h4><%= title %></h4>
+    <p><%= str %></p>
+    <table id="addEnvTable" class="table table-bordered table-condensed"></table>
+  </div>
+</script>
+
+<script type="text/template" id="env-addenv-tablerow-template">
+  <tr><td><%= cell1 %></td><td><%= cell2 %></td><td><%= cell3 %></td></tr>
+</script>
+
+<script type="text/template" id="env-addenv-cell-template">
+  <input type="checkbox" id="addEnvPackageCheckbox" name="package" value="<%= packID %>"/> <span class="al-package-link" data-pid="<%= packID %>"><%=package%>, <%=ver%></span>
+</script>
+
+<script type="text/template" id="p-template">
+  <p><%= str %></p>
+</script>
+
+<div id="layout-root"><div><div class="modal hide fade" id="confirmModal"></div>
+<div class="modal hide fade" id="connectionErrorModal"></div>    
+<div id="alRoot" class="al-root splitter ui-widget ui-widget-content" data-splitter-initialized="true" style="position: absolute;">
+  <div id="leftPanel" class="al-pane active splitter-pane" style="width: 260px; position: absolute; z-index: 1; left: 0px; height: 591px;">
+    <div id="filemanager"><div class="file_manager_wrap">
+  <div class="file_manager_buttons">
+    <div class="btn-group pull-left">
+      <button class="btn btn-mini refresh" title="Refresh list">
+        <i class=" icon-repeat"></i>
+      </button>
+      <button class="btn btn-mini new_file" title="Add file">
+        <i class=" icon-plus"></i>
+        <i class="icon-file"></i>
+      </button>
+
+      <button class="btn btn-mini mkdir" title="Add folder">
+        <i class=" icon-plus"></i>
+        <i class="icon-folder-open"></i>
+      </button>
+      <button class="btn btn-mini share" title="Share">
+        <i class="icon-share"></i>
+      </button>
+      <button class="delete btn btn-mini" title="Delete file"><i class="icon-trash"></i></button>
+      <button class="download_file btn btn-mini" title="Download file"><i class="icon-download-alt"></i></button>
+      <button class="upload_button btn btn-mini" title="Upload file"><i class="icon-upload-alt"></i></button>
+      <button class="web_import btn btn-mini" title="Import from web"><i class="icon-globe"></i></button>
+    </div>
+  </div>
+  <div class="filebrowser_area">
+    <div class="upload_controls">
+
+      <div class="queue" id="queue">
+        <div id="dragdrop-text">Drag &amp; Drop Here</div>
+      </div>
+      <form method="POST" enctype="multipart/form-data">
+        <div id="uploadifive-undefined" class="btn btn-small btn-success" style="overflow: hidden; position: relative;">Select Files<input type="file" name="file_upload" class="file_upload" multiple="true" style="display: none;"><input type="file" style="opacity: 0; position: absolute; z-index: 999;" multiple="multiple"></div>
+      </form>
+      <button class="start_upload btn btn-small btn-primary" disabled="">Upload Files</button>
+    </div>
+    <div class="directory"><table class="table fixed-table"><colgroup><col span="1" style="width: 20px;">               <col span="1" style="width: 100%;">               <col span="1" style="width: 50px;">            </colgroup>
+  <tr class="pathrow">
+    <td colspan="3">
+      <form class="form-inline pathform">
+        <label>Path:</label> ~/<span></span>
+      </form>
+    </td>
+    
+  
+  </tr>
+<tbody><tr class="fileview">
+  
+  <td class="file_view_icon"><i class="icon-folder-close"></i></td>
+  
+
+
+<td class="filename">scripts</td>
+
+<td class="file_view_right_side">
+  
+    <button class="share-btn share">Share</button>
+  
+</td>
+
+</tr><tr class="fileview">
+  
+  <td class="file_view_icon"><i class="icon-folder-close"></i></td>
+  
+
+
+<td class="filename">wakaripython</td>
+
+<td class="file_view_right_side">
+  
+    <button class="share-btn share">Share</button>
+  
+</td>
+
+</tr><tr class="fileview">
+	
+	  <td class="file_view_icon"><i class="icon-file"></i></td>
+	
+
+
+<td class="filename">HOMEWORK</td>
+
+<td class="file_view_right_side">
+  
+    <span class="file_size">0</span>
+  
+</td>
+
+</tr><tr class="fileview fileselected">
+	
+  	<td class="file_view_icon"><img src="./Wakari_files/ipynb_icon_16x16.png"></td>
+	
+
+
+<td class="filename">Untitled0.ipynb</td>
+
+<td class="file_view_right_side">
+  
+    <button class="share-btn share">Share</button>
+  
+</td>
+
+</tr><tr class="fileview">
+	
+  	<td class="file_view_icon"><img src="./Wakari_files/ipynb_icon_16x16.png"></td>
+	
+
+
+<td class="filename">Untitled4.ipynb</td>
+
+<td class="file_view_right_side">
+  
+    <button class="share-btn share">Share</button>
+  
+</td>
+
+</tr></tbody></table></div>
+  </div>
+</div>
+</div>    
+  </div><div class="splitter-bar splitter-bar-vertical ui-state-default" unselectable="on" style="position: absolute; -webkit-user-select: none; z-index: 100; left: 260px; height: 591px;"><a href="javascript:void(0)" accesskey="" tabindex="0"></a></div>
+  <div id="al-main" class="container-fluid splitter-pane" style="position: absolute; z-index: 1; left: 264px; width: 1102px; height: 591px;">
+    <div id="midPanel" class="al-pane">
+    <div class="tabset"><ul id="terminal-tabs" class="nav nav-tabs"></ul><div class="tab-content"></div></div></div>
+    <div id="rightPanel" class="al-pane active" style="width: 100%;">
+    <div class="tabset"><ul id="terminal-tabs" class="nav nav-tabs"><li class="tablabel" style="width: 50%;"><a title="click and hold to move to another pane" id="terminalsTab" class="tab-tab tab-terminals">Terminals</a></li><li class="tablabel active" style="width: 50%;"><a title="click and hold to move to another pane" id="Untitled0.ipynbTab" class="tab-tab tab-Untitled0.ipynb"><i class="icon-remove-sign"></i> notebook:Untitled0.ipynb</a></li></ul><div class="tab-content" style="background-color: white;"><div class="tab-pane"><div><div id="terminalToolbar">
+  <select id="termTypeSelect">
+    <option value="shell">Shell</option>
+    <option value="python">Python</option>
+    <option value="ipython" selected="selected">IPython</option>
+    <option value="pylab">Pylab</option>
+    <option value="R">R</option>
+    <option value="julia">Julia</option>
+  </select>
+  <select id="termEnvSelect" class="envselect"> </select>
+  <button id="termGoBtn" class="btn btn-small al-go-btn terminal-btn"><i class="icon-plus"></i> Tab</button>
+
+  <span id="term_menu" class="btn-group pull-right">
+    <a class="btn dropdown-toggle" data-toggle="dropdown" href="https://wakari.io/wakari#">
+      <i class="icon-cog"></i>
+      <span class="caret"></span>
+    </a>
+    <ul class="dropdown-menu dropdown-settings">
+      <li>
+        <a href="https://wakari.io/wakari#" class="set-default-btn"><i class="icon-globe"></i> Set Default Env</a>
+      </li>
+      <li class="divider"></li>
+      <li>
+        <a href="https://wakari.io/wakari#"><i class="icon-adjust"></i> Theme
+        <span class="go_prefs_theme">
+          <select id="go_prefs_theme"></select>
+        </span>
+        </a>
+      </li>
+
+    </ul>
+  </span>
+
+  
+</div>
+<div id="terminal_loading"><h1>LOADING...</h1></div>
+<div id="gateone_tab_container">
+  <div id="g_one_tabs" class="tabset">
+    <ul id="right-pane-tabs" class="nav nav-tabs"></ul>
+  <ul id="terminal-tabs" class="nav nav-tabs"></ul><div class="tab-content" style="background-color: white;"></div></div>
+  <div id="gateone_container">
+    <div id="gateone"></div>
+  </div>
+</div>
+</div></div><div class="tab-pane active"><div class="notebookview">
+  <div class="notebook_iframe_wrapper">
+    <iframe id="" class="notebookiframe" src="./Wakari_files/Untitled0.html">
+    </iframe>
+  </div>
+</div></div></div></div></div>
+    <!-- end rightPanel -->
+  </div>
+</div>
+
+<div id="setDefaultEnvModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">x</button>
+        <h3 id="modalTitle">Set Default Environment</h3>
+      </div>
+      <div id="modalBody" class="modal-body">
+        <p>Would you like to set <b><span id="defaultEnv"></span></b> as your default Wakari environment?</p>
+      </div>
+      <div id="modalFooter" class="modal-footer">
+        <button class="btn btn-primary set-default-yes-btn">Yes</button>
+        <button id="modalCancelBtn" href="#" class="btn" data-dismiss="modal">No</button>
+      </div>
+</div>
+
+<div id="setDefaultDoneModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">x</button>
+        <h3 id="modalTitle">Default Environment Set</h3>
+      </div>
+      <div id="modalBody" class="modal-body">
+        <p>Default environment set to <b><span id="defaultEnvDone"></span></b></p>
+      </div>
+      <div id="modalFooter" class="modal-footer">
+        <button id="modalCancelBtn" href="#" class="btn" data-dismiss="modal">Close</button>
+      </div>
+</div></div></div>
+
+<script type="text/template" id="private-data-template">
+  <div>
+    <div class="btn-toolbar">
+      <div class="pull-right">
+        <a id="dataRefreshPrivateFiles" href="#" class="btn btn-mini" title="Refresh"><i class="icon-refresh"></i></a>
+        <a id="dataPrivateHelp" href="#" class="btn btn-mini"><i class="icon-question-sign"></i></a>
+      </div>
+    </div>
+    <h4>Private Data Files</h4>
+  </div>
+  <div id="dataTree" class="alert alert-success"></div>
+  <div id="dataMeta"></div>
+</script>
+
+<script type="text/template" id="tree-template">
+  <div id="privateBrowser" class="alert alert-success">
+    <span><%= homedir %></span>
+    <div class="css-treeview">
+</script>
+
+<script type="text/template" id="private-meta-template">
+  <div id="privateMeta" class="alert alert-success">
+    <span id="privateMetaMsg"></span>
+    <h5>Name: <%= filename %></h5>
+    <h5>Size: <%= size %></h5>
+  </div>
+</script>
+
+<script type="text/template" id="directory-template">
+  <tr class="pathrow">
+    <td colspan="3">
+      <form class="form-inline pathform">
+        <label>Path:</label> ~/<span><%= path %></span>
+      </form>
+    </td>
+    <% if(cangoback) { %>
+  <tr class="gobackrow">
+    <td><i class=" icon-arrow-left"></i></td>
+    <td>Go Back</td>
+    <td></td>
+  </tr>
+  <%}%>
+  <% if (emptydirectory) {%>
+  <tr class="emptydir">
+    <td></td>
+    <td colspan="2"> Empty Directory </td>
+  </tr>
+  <%}%>
+  </tr>
+</script>
+
+<script type="text/template" id="file-template">
+  <% if (isdir){ %>
+  <td><i class=" icon-folder-close"></i></td>
+  <% }else{ %>
+  <td><i class=" icon-file"></i></td>
+  <% } %>
+  <td><%= name %></td>
+  <td class="file_size"><%= size %></td>
+</script>
+
+<script type="text/template" id="public-data-template">
+  <div>
+    <div class="toolbar pull-right">
+      <a id="dataRefreshPublicFiles" href="#" class="btn" title="Refresh"><i class=" icon-refresh icon-white"></i></a>
+    </div>
+    <h4>Public Data Files</h4>
+    <div class="alert">
+      <p>Note: Public data files and adapters are only available in Wakari Python 2.7 environments.</p>
+    </div>
+    <div class="dataPublicPane">
+      <div class="accordion" id="accordionPublicData"></div>
+    </div>
+  </div>
+</script>
+<script type="text/template" id="public-data-agrp-template">
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordionPublicData" href="#collapse<%= secNum %>">
+        <%= grpName %>
+      </a>
+    </div>
+    <div id="collapse<%= secNum %>" class="accordion-body collapse">
+      <div class="accordion-inner">
+        <div class="tabbable">
+          <ul class="nav nav-tabs">
+            <li class="active"><a href="#sec<%= secNum %>tab1" data-toggle="tab">Desc</a></li>
+            <li><a href="#sec<%= secNum %>tab2" data-toggle="tab">Keys</a></li>
+            <li><a href="#sec<%= secNum %>tab4" data-toggle="tab">Example</a></li>
+          </ul>
+          <div class="tab-content">
+            <div class="tab-pane active" id="sec<%= secNum %>tab1">
+              <p class="dataPublicDesc"><%= desc %></p>
+            </div>
+            <div class="tab-pane" id="sec<%= secNum %>tab2">
+              <table class="table table-striped table-condensed">
+                <thead><tr><th>Keys</th></tr></thead>
+                <tbody><%= keysRows %></tbody>
+              </table>
+            </div>
+            <div class="tab-pane" id="sec<%= secNum %>tab4">
+              <pre><code><%= example %></code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</script>
+
+  <script type="text/template" id="connection-error-template">
+    <div class="modal-header">
+      <h3 id="modalTitle">Welcome Back</h3>
+    </div>
+    <div id="modalBody" class="modal-body" >
+      <p>Your connection to Wakari was closed while you where away.</p>
+      <p>Would you like to
+      <button id="connErrorRefreshBtn" class="btn btn-primary">Reconnect</button>
+      or
+      <button id="connErrorLogoutBtn" class="btn">Logout</button>
+    </div>
+    <div id="modalFooter" class="modal-footer">
+    </div>
+  </script>
+  <div id="dataBrowserModal" class="modal hide">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal">x</button>      
+      <h3 id="modalTitle">Data Browser</h3>
+    </div>
+    <div id="databrowser" class="modal-body"><div>
+  <div id="dataBrowserDiv">
+  <div>
+    <div class="toolbar pull-right">
+      <a id="dataRefreshPublicFiles" href="https://wakari.io/wakari#" class="btn" title="Refresh"><i class=" icon-refresh icon-white"></i></a>
+    </div>
+    <h4>Public Data Files</h4>
+    <div class="alert">
+      <p>Note: Public data files and adapters are only available in Wakari Python 2.7 environments.</p>
+    </div>
+    <div class="dataPublicPane">
+      <div class="accordion" id="accordionPublicData">
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordionPublicData" href="https://wakari.io/wakari#collapse0">
+        1000 Genomes Dataset
+      </a>
+    </div>
+    <div id="collapse0" class="accordion-body collapse">
+      <div class="accordion-inner">
+        <div class="tabbable">
+          <ul class="nav nav-tabs">
+            <li class="active"><a href="https://wakari.io/wakari#sec0tab1" data-toggle="tab">Desc</a></li>
+            <li><a href="https://wakari.io/wakari#sec0tab2" data-toggle="tab">Keys</a></li>
+            <li><a href="https://wakari.io/wakari#sec0tab4" data-toggle="tab">Example</a></li>
+          </ul>
+          <div class="tab-content">
+            <div class="tab-pane active" id="sec0tab1">
+              <p class="dataPublicDesc">
+    1000 Genomes Project:
+    The 1000 Genomes project collects and stores a variety of genome sequencing 
+    and alignment data from over 2600 people and 27 countries. 
+
+    All of the 1000 Genomes dataset is publicly available and can be accessed
+    through this interface. The example dataset listed in the keys list is ~3GB.
+
+    For more information please see: http://aws.amazon.com/datasets/4383
+    </p>
+            </div>
+            <div class="tab-pane" id="sec0tab2">
+              <table class="table table-striped table-condensed">
+                <thead><tr><th>Keys</th></tr></thead>
+                <tbody><tr><td>data/HG00115/sequence_read/ERR018519.filt.fastq.gz</td></tr></tbody>
+              </table>
+            </div>
+            <div class="tab-pane" id="sec0tab4">
+              <pre><code><br>from wakaridata.genomes import Genomes<br>aws_access_key = ""<br>aws_secret_key = ""<br>genomes = Genomes(aws_access_key, aws_secret_key)<br># Get list of dataset keys (list is not exhaustive)<br>keys = genomes.keys()<br># Get IOPro text adapter<br>adapter = genomes[keys[0]]<br># Get NumPy array of all records<br>array = adapter[:]<br>print array']<br><br></code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordionPublicData" href="https://wakari.io/wakari#collapse1">
+        2012 Election Polling Data
+      </a>
+    </div>
+    <div id="collapse1" class="accordion-body collapse">
+      <div class="accordion-inner">
+        <div class="tabbable">
+          <ul class="nav nav-tabs">
+            <li class="active"><a href="https://wakari.io/wakari#sec1tab1" data-toggle="tab">Desc</a></li>
+            <li><a href="https://wakari.io/wakari#sec1tab2" data-toggle="tab">Keys</a></li>
+            <li><a href="https://wakari.io/wakari#sec1tab4" data-toggle="tab">Example</a></li>
+          </ul>
+          <div class="tab-content">
+            <div class="tab-pane active" id="sec1tab1">
+              <p class="dataPublicDesc"> 2012 Election polling data
+
+    president: voting for Romney vs Obama
+    obama favorables: Obama's favorable and unfavorable ratings
+    romney favorables: Romney's favorable and unfavorable ratings
+    party id: which party voters identify with
+    congress job approval: voter's job approval of Congress
+    right-wrong track: Is the country on the right track or wrong track?
+    
+    source: http://elections.huffingtonpost.com/pollster
+    </p>
+            </div>
+            <div class="tab-pane" id="sec1tab2">
+              <table class="table table-striped table-condensed">
+                <thead><tr><th>Keys</th></tr></thead>
+                <tbody><tr><td>obama favorables</td></tr><tr><td>right-wrong track</td></tr><tr><td>party id</td></tr><tr><td>president</td></tr><tr><td>romney favorables</td></tr><tr><td>congress job approval</td></tr></tbody>
+              </table>
+            </div>
+            <div class="tab-pane" id="sec1tab4">
+              <pre><code><br>from wakaridata.polls import Polls<br>polls = Polls()<br># Get list of dataset keys<br>keys = polls.keys()<br># Get IOPro text adapter<br>adapter = polls[keys[0]]<br># Get NumPy array of all records<br>array = adapter[:]<br>print array<br><br></code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordionPublicData" href="https://wakari.io/wakari#collapse2">
+        2012 Election Contributions
+      </a>
+    </div>
+    <div id="collapse2" class="accordion-body collapse">
+      <div class="accordion-inner">
+        <div class="tabbable">
+          <ul class="nav nav-tabs">
+            <li class="active"><a href="https://wakari.io/wakari#sec2tab1" data-toggle="tab">Desc</a></li>
+            <li><a href="https://wakari.io/wakari#sec2tab2" data-toggle="tab">Keys</a></li>
+            <li><a href="https://wakari.io/wakari#sec2tab4" data-toggle="tab">Example</a></li>
+          </ul>
+          <div class="tab-content">
+            <div class="tab-pane active" id="sec2tab1">
+              <p class="dataPublicDesc"> 2012 presidential campaign finance data from the FEC.
+    
+    source: http://www.fec.gov/disclosurep/PDownload.do
+    </p>
+            </div>
+            <div class="tab-pane" id="sec2tab2">
+              <table class="table table-striped table-condensed">
+                <thead><tr><th>Keys</th></tr></thead>
+                <tbody><tr><td>FEC/FEC_ALL.csv</td></tr></tbody>
+              </table>
+            </div>
+            <div class="tab-pane" id="sec2tab4">
+              <pre><code><br>from wakaridata.fec import FEC<br>fec = FEC()<br># Get list of dataset keys<br>keys = fec.keys()<br># Get IOPro text adapter<br>adapter = fec[keys[0]]<br># Get NumPy array of first 100 records<br>array = adapter[0:100]<br>print array<br><br></code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordionPublicData" href="https://wakari.io/wakari#collapse3">
+        Global Weather Data 1929-2012
+      </a>
+    </div>
+    <div id="collapse3" class="accordion-body collapse">
+      <div class="accordion-inner">
+        <div class="tabbable">
+          <ul class="nav nav-tabs">
+            <li class="active"><a href="https://wakari.io/wakari#sec3tab1" data-toggle="tab">Desc</a></li>
+            <li><a href="https://wakari.io/wakari#sec3tab2" data-toggle="tab">Keys</a></li>
+            <li><a href="https://wakari.io/wakari#sec3tab4" data-toggle="tab">Example</a></li>
+          </ul>
+          <div class="tab-content">
+            <div class="tab-pane active" id="sec3tab1">
+              <p class="dataPublicDesc">
+    Daily Global Weather Measurements, 1929-2012 (NCDC, GSOD)
+
+    Mean temperature (.1 Fahrenheit)
+    Mean dew point (.1 Fahrenheit)
+    Mean sea level pressure (.1 mb)
+    Mean station pressure (.1 mb)
+    Mean visibility (.1 miles)
+    Mean wind speed (.1 knots)
+    Maximum sustained wind speed (.1 knots)
+    Maximum wind gust (.1 knots)
+    Maximum temperature (.1 Fahrenheit)
+    Minimum temperature (.1 Fahrenheit)
+    Precipitation amount (.01 inches)
+    Snow depth (.1 inches)
+
+    Some of the more recent datasets can be somewhat large (~500MB).
+
+    For more information please see: ftp://ftp.ncdc.noaa.gov/pub/data/gsod/readme.txt 
+    </p>
+            </div>
+            <div class="tab-pane" id="sec3tab2">
+              <table class="table table-striped table-condensed">
+                <thead><tr><th>Keys</th></tr></thead>
+                <tbody><tr><td>1929</td></tr><tr><td>1930</td></tr><tr><td>1931</td></tr><tr><td>1932</td></tr><tr><td>1933</td></tr><tr><td>1934</td></tr><tr><td>1935</td></tr><tr><td>1936</td></tr><tr><td>1937</td></tr><tr><td>1938</td></tr><tr><td>1939</td></tr><tr><td>1940</td></tr><tr><td>1941</td></tr><tr><td>1942</td></tr><tr><td>1943</td></tr><tr><td>1944</td></tr><tr><td>1945</td></tr><tr><td>1946</td></tr><tr><td>1947</td></tr><tr><td>1948</td></tr><tr><td>1949</td></tr><tr><td>1950</td></tr><tr><td>1951</td></tr><tr><td>1952</td></tr><tr><td>1953</td></tr><tr><td>1954</td></tr><tr><td>1955</td></tr><tr><td>1956</td></tr><tr><td>1957</td></tr><tr><td>1958</td></tr><tr><td>1959</td></tr><tr><td>1960</td></tr><tr><td>1961</td></tr><tr><td>1962</td></tr><tr><td>1963</td></tr><tr><td>1964</td></tr><tr><td>1965</td></tr><tr><td>1966</td></tr><tr><td>1967</td></tr><tr><td>1968</td></tr><tr><td>1969</td></tr><tr><td>1970</td></tr><tr><td>1971</td></tr><tr><td>1972</td></tr><tr><td>1973</td></tr><tr><td>1974</td></tr><tr><td>1975</td></tr><tr><td>1976</td></tr><tr><td>1977</td></tr><tr><td>1978</td></tr><tr><td>1979</td></tr><tr><td>1980</td></tr><tr><td>1981</td></tr><tr><td>1982</td></tr><tr><td>1983</td></tr><tr><td>1984</td></tr><tr><td>1985</td></tr><tr><td>1986</td></tr><tr><td>1987</td></tr><tr><td>1988</td></tr><tr><td>1989</td></tr><tr><td>1990</td></tr><tr><td>1991</td></tr><tr><td>1992</td></tr><tr><td>1993</td></tr><tr><td>1994</td></tr><tr><td>1995</td></tr><tr><td>1996</td></tr><tr><td>1997</td></tr><tr><td>1998</td></tr><tr><td>1999</td></tr><tr><td>2000</td></tr><tr><td>2001</td></tr><tr><td>2002</td></tr><tr><td>2003</td></tr><tr><td>2004</td></tr><tr><td>2005</td></tr><tr><td>2006</td></tr><tr><td>2007</td></tr><tr><td>2008</td></tr><tr><td>2009</td></tr></tbody>
+              </table>
+            </div>
+            <div class="tab-pane" id="sec3tab4">
+              <pre><code><br>from wakaridata.weather import Weather<br>weather = Weather()<br># Get list of dataset keys<br>keys = weather.keys()<br># Get IOPro text adapter<br>adapter = weather[keys[0]]<br># Get NumPy array of all records<br>array = adapter[:]<br>print array<br><br></code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordionPublicData" href="https://wakari.io/wakari#collapse4">
+        Transportation Data
+      </a>
+    </div>
+    <div id="collapse4" class="accordion-body collapse">
+      <div class="accordion-inner">
+        <div class="tabbable">
+          <ul class="nav nav-tabs">
+            <li class="active"><a href="https://wakari.io/wakari#sec4tab1" data-toggle="tab">Desc</a></li>
+            <li><a href="https://wakari.io/wakari#sec4tab2" data-toggle="tab">Keys</a></li>
+            <li><a href="https://wakari.io/wakari#sec4tab4" data-toggle="tab">Example</a></li>
+          </ul>
+          <div class="tab-content">
+            <div class="tab-pane active" id="sec4tab1">
+              <p class="dataPublicDesc">Data and statistics from the US Department of Transportation on Aviation,
+    Maritime, Highway, Transit, Rail, Pipeline, Bike/Pedestrian and other modes
+    of transportation.
+    </p>
+            </div>
+            <div class="tab-pane" id="sec4tab2">
+              <table class="table table-striped table-condensed">
+                <thead><tr><th>Keys</th></tr></thead>
+                <tbody><tr><td>transportation/common/bts_omnibus_survey/2000/aug-00-data.csv</td></tr><tr><td>transportation/common/bts_omnibus_survey/2000/dec-00-data.csv</td></tr><tr><td>transportation/common/bts_omnibus_survey/2000/nov-00-data.csv</td></tr><tr><td>transportation/common/bts_omnibus_survey/2000/oct-00-data.csv</td></tr><tr><td>transportation/common/bts_omnibus_survey/2000/sep-00-data.csv</td></tr><tr><td>transportation/common/bts_omnibus_survey/2001/aug-01-data.csv</td></tr><tr><td>transportation/common/bts_omnibus_survey/2001/dec-01-data.csv</td></tr><tr><td>transportation/common/bts_omnibus_survey/2001/feb-01-data.csv</td></tr><tr><td>transportation/common/bts_omnibus_survey/2001/jan-01-data.csv</td></tr><tr><td>transportation/common/bts_omnibus_survey/2001/jul-01-data.csv</td></tr><tr><td>transportation/common/bts_omnibus_survey/2001/mar-01-data.csv</td></tr><tr><td>transportation/common/bts_omnibus_survey/2001/nov-01-data.csv</td></tr><tr><td>transportation/common/bts_omnibus_survey/2001/oct-01-data.csv</td></tr><tr><td>transportation/common/bts_omnibus_survey/2002/apr-02-data.csv</td></tr><tr><td>transportation/common/bts_omnibus_survey/2002/aug-02-data.csv</td></tr><tr><td>transportation/common/bts_omnibus_survey/2002/feb-02-data.csv</td></tr><tr><td>transportation/common/bts_omnibus_survey/2002/jan-02-data.csv</td></tr><tr><td>transportation/common/bts_omnibus_survey/2002/jul-02-data.csv</td></tr><tr><td>transportation/common/bts_omnibus_survey/2002/jun-02-data.csv</td></tr><tr><td>transportation/common/bts_omnibus_survey/2002/mar-02-data.csv</td></tr><tr><td>transportation/common/bts_omnibus_survey/2002/may-02-data.csv</td></tr><tr><td>transportation/common/bts_omnibus_survey/2002/oct-02-data.csv</td></tr><tr><td>transportation/common/bts_omnibus_survey/2002/sep-02-data.csv</td></tr><tr><td>transportation/common/bts_omnibus_survey/2003/apr-03-data.csv</td></tr><tr><td>transportation/common/bts_omnibus_survey/2003/aug-03-data.csv</td></tr><tr><td>transportation/common/bts_omnibus_survey/2003/dec-03-data.csv</td></tr><tr><td>transportation/common/bts_omnibus_survey/2003/feb-03-data.csv</td></tr><tr><td>transportation/common/bts_omnibus_survey/2003/jun-03-data.csv</td></tr><tr><td>transportation/common/bts_omnibus_survey/2003/oct-03-data.csv</td></tr></tbody>
+              </table>
+            </div>
+            <div class="tab-pane" id="sec4tab4">
+              <pre><code><br>from wakaridata.common_travel import CommonTravel<br>common_travel = CommonTravel()<br># Get list of dataset keys<br>keys = common_travel.keys()<br># Get IOPro text adapter<br>adapter = common_travel[keys[0]]<br># Get NumPy array of all records<br>array = adapter[:]<br>print array']<br><br></code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordionPublicData" href="https://wakari.io/wakari#collapse5">
+        WikiLogs
+      </a>
+    </div>
+    <div id="collapse5" class="accordion-body collapse">
+      <div class="accordion-inner">
+        <div class="tabbable">
+          <ul class="nav nav-tabs">
+            <li class="active"><a href="https://wakari.io/wakari#sec5tab1" data-toggle="tab">Desc</a></li>
+            <li><a href="https://wakari.io/wakari#sec5tab2" data-toggle="tab">Keys</a></li>
+            <li><a href="https://wakari.io/wakari#sec5tab4" data-toggle="tab">Example</a></li>
+          </ul>
+          <div class="tab-content">
+            <div class="tab-pane active" id="sec5tab1">
+              <p class="dataPublicDesc">
+    Page view statistics for Wikimedia projects.
+
+    Datasets can be accessed by key in YearMonthDayHour format. For example:
+
+    wikilog['2011040707'][:100]
+    
+    to access first 100 rows of April 7th 2011 07 UTC.
+
+    WikiLog Data Source: http://dumps.wikimedia.org/other/pagecounts-raw/.
+    </p>
+            </div>
+            <div class="tab-pane" id="sec5tab2">
+              <table class="table table-striped table-condensed">
+                <thead><tr><th>Keys</th></tr></thead>
+                <tbody><tr><td>2012010100</td></tr><tr><td>2012010101</td></tr><tr><td>2012010102</td></tr><tr><td>2012010103</td></tr><tr><td>2012010104</td></tr></tbody>
+              </table>
+            </div>
+            <div class="tab-pane" id="sec5tab4">
+              <pre><code><br>from wakaridata.wikilogs import WikiLogs<br>logs = WikiLogs()<br># Get list of dataset keys<br>keys = logs.keys()<br># Get IOPro text adapter<br>adapter = logs[keys[0]]<br># Get NumPy array of first 100 records<br>array = adapter[0:100]<br>print array<br><br></code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordionPublicData" href="https://wakari.io/wakari#collapse6">
+        Yahoo Finance Data
+      </a>
+    </div>
+    <div id="collapse6" class="accordion-body collapse">
+      <div class="accordion-inner">
+        <div class="tabbable">
+          <ul class="nav nav-tabs">
+            <li class="active"><a href="https://wakari.io/wakari#sec6tab1" data-toggle="tab">Desc</a></li>
+            <li><a href="https://wakari.io/wakari#sec6tab2" data-toggle="tab">Keys</a></li>
+            <li><a href="https://wakari.io/wakari#sec6tab4" data-toggle="tab">Example</a></li>
+          </ul>
+          <div class="tab-content">
+            <div class="tab-pane active" id="sec6tab1">
+              <p class="dataPublicDesc">
+    Yahoo Finance Data Source.
+
+    Individual stock data can be accessed by using the stock name as the key.
+    For example:
+
+    stocks['VXX'][:100]
+
+    to retrieve first 100 rows of VXX security.
+
+    source: http://finance.yahoo.com/
+    </p>
+            </div>
+            <div class="tab-pane" id="sec6tab2">
+              <table class="table table-striped table-condensed">
+                <thead><tr><th>Keys</th></tr></thead>
+                <tbody><tr><td>A</td></tr><tr><td>AA</td></tr><tr><td>AAPL</td></tr><tr><td>ABC</td></tr><tr><td>ABT</td></tr><tr><td>ACE</td></tr><tr><td>ACN</td></tr><tr><td>ADBE</td></tr><tr><td>ADI</td></tr><tr><td>ADM</td></tr><tr><td>ADP</td></tr><tr><td>ADSK</td></tr><tr><td>AEE</td></tr><tr><td>AEP</td></tr><tr><td>AES</td></tr><tr><td>AET</td></tr><tr><td>AFL</td></tr><tr><td>AGN</td></tr><tr><td>AIG</td></tr><tr><td>AIV</td></tr><tr><td>AIZ</td></tr><tr><td>AKAM</td></tr><tr><td>AKS</td></tr><tr><td>ALL</td></tr><tr><td>ALTR</td></tr><tr><td>AMAT</td></tr><tr><td>AMD</td></tr><tr><td>AMGN</td></tr><tr><td>AMP</td></tr><tr><td>AMT</td></tr><tr><td>AMZN</td></tr><tr><td>AN</td></tr><tr><td>ANF</td></tr><tr><td>ANR</td></tr><tr><td>AON</td></tr><tr><td>APA</td></tr><tr><td>APC</td></tr><tr><td>APD</td></tr><tr><td>APH</td></tr><tr><td>APOL</td></tr><tr><td>ARG</td></tr><tr><td>ATI</td></tr><tr><td>AVB</td></tr><tr><td>AVP</td></tr><tr><td>AVY</td></tr><tr><td>AXP</td></tr><tr><td>AZO</td></tr><tr><td>BA</td></tr><tr><td>BAC</td></tr><tr><td>BAX</td></tr><tr><td>BBBY</td></tr><tr><td>BBT</td></tr><tr><td>BBY</td></tr><tr><td>BCR</td></tr><tr><td>BDX</td></tr><tr><td>BEN</td></tr><tr><td>BF-B</td></tr><tr><td>BHI</td></tr><tr><td>BIG</td></tr><tr><td>BIIB</td></tr><tr><td>BK</td></tr><tr><td>BLK</td></tr><tr><td>BLL</td></tr><tr><td>BMC</td></tr><tr><td>BMS</td></tr><tr><td>BMY</td></tr><tr><td>BRCM</td></tr><tr><td>BRK-B</td></tr><tr><td>BSX</td></tr><tr><td>BTU</td></tr><tr><td>BXP</td></tr><tr><td>C</td></tr><tr><td>CA</td></tr><tr><td>CAG</td></tr><tr><td>CAH</td></tr><tr><td>CAM</td></tr><tr><td>CAT</td></tr><tr><td>CB</td></tr><tr><td>CBG</td></tr><tr><td>CBS</td></tr><tr><td>CCE</td></tr><tr><td>CCL</td></tr><tr><td>CEG</td></tr><tr><td>CELG</td></tr><tr><td>CEPH</td></tr><tr><td>CERN</td></tr><tr><td>CF</td></tr><tr><td>CFN</td></tr><tr><td>CHK</td></tr><tr><td>CHRW</td></tr><tr><td>CI</td></tr><tr><td>CINF</td></tr><tr><td>CL</td></tr><tr><td>CLF</td></tr><tr><td>CLX</td></tr><tr><td>CMA</td></tr><tr><td>CMCSA</td></tr><tr><td>CME</td></tr><tr><td>CMG</td></tr><tr><td>CMI</td></tr><tr><td>CMS</td></tr><tr><td>CNP</td></tr><tr><td>CNX</td></tr><tr><td>COF</td></tr><tr><td>COG</td></tr><tr><td>COH</td></tr><tr><td>COL</td></tr><tr><td>COP</td></tr><tr><td>COST</td></tr><tr><td>COV</td></tr><tr><td>CPB</td></tr><tr><td>CPWR</td></tr><tr><td>CRM</td></tr><tr><td>CSC</td></tr><tr><td>CSCO</td></tr><tr><td>CSX</td></tr><tr><td>CTAS</td></tr><tr><td>CTL</td></tr><tr><td>CTSH</td></tr><tr><td>CTXS</td></tr><tr><td>CVC</td></tr><tr><td>CVH</td></tr><tr><td>CVS</td></tr><tr><td>CVX</td></tr><tr><td>D</td></tr><tr><td>DD</td></tr><tr><td>DE</td></tr><tr><td>DELL</td></tr><tr><td>DF</td></tr><tr><td>DFS</td></tr><tr><td>DGX</td></tr><tr><td>DHI</td></tr><tr><td>DHR</td></tr><tr><td>DIS</td></tr><tr><td>DISCA</td></tr><tr><td>DNB</td></tr><tr><td>DNR</td></tr><tr><td>DO</td></tr><tr><td>DOV</td></tr><tr><td>DOW</td></tr><tr><td>DPS</td></tr><tr><td>DRI</td></tr><tr><td>DTE</td></tr><tr><td>DTV</td></tr><tr><td>DUK</td></tr><tr><td>DV</td></tr><tr><td>DVA</td></tr><tr><td>DVN</td></tr><tr><td>EBAY</td></tr><tr><td>ECL</td></tr><tr><td>ED</td></tr><tr><td>EFX</td></tr><tr><td>EIX</td></tr><tr><td>EL</td></tr><tr><td>EMC</td></tr><tr><td>EMN</td></tr><tr><td>EMR</td></tr><tr><td>EOG</td></tr><tr><td>EP</td></tr><tr><td>EQR</td></tr><tr><td>EQT</td></tr><tr><td>ERTS</td></tr><tr><td>ESRX</td></tr><tr><td>ETFC</td></tr><tr><td>ETN</td></tr><tr><td>ETR</td></tr><tr><td>EW</td></tr><tr><td>EXC</td></tr><tr><td>EXPD</td></tr><tr><td>EXPE</td></tr><tr><td>F</td></tr><tr><td>FAST</td></tr><tr><td>FCX</td></tr><tr><td>FDO</td></tr><tr><td>FDX</td></tr><tr><td>FE</td></tr><tr><td>FFIV</td></tr><tr><td>FHN</td></tr><tr><td>FII</td></tr><tr><td>FIS</td></tr><tr><td>FISV</td></tr><tr><td>FITB</td></tr><tr><td>FLIR</td></tr><tr><td>FLR</td></tr><tr><td>FLS</td></tr><tr><td>FMC</td></tr><tr><td>FO</td></tr><tr><td>FRX</td></tr><tr><td>FSLR</td></tr><tr><td>FTI</td></tr><tr><td>FTR</td></tr><tr><td>GAS</td></tr><tr><td>GCI</td></tr><tr><td>GD</td></tr><tr><td>GE</td></tr><tr><td>GILD</td></tr><tr><td>GIS</td></tr><tr><td>GLW</td></tr><tr><td>GME</td></tr><tr><td>GNW</td></tr><tr><td>GOOG</td></tr><tr><td>GPC</td></tr><tr><td>GPS</td></tr><tr><td>GR</td></tr><tr><td>GS</td></tr><tr><td>GT</td></tr><tr><td>GWW</td></tr><tr><td>HAL</td></tr><tr><td>HAR</td></tr><tr><td>HAS</td></tr><tr><td>HBAN</td></tr><tr><td>HCBK</td></tr><tr><td>HCN</td></tr><tr><td>HCP</td></tr><tr><td>HD</td></tr><tr><td>HES</td></tr><tr><td>HIG</td></tr><tr><td>HNZ</td></tr><tr><td>HOG</td></tr><tr><td>HON</td></tr><tr><td>HOT</td></tr><tr><td>HP</td></tr><tr><td>HPQ</td></tr><tr><td>HRB</td></tr><tr><td>HRL</td></tr><tr><td>HRS</td></tr><tr><td>HSP</td></tr><tr><td>HST</td></tr><tr><td>HSY</td></tr><tr><td>HUM</td></tr><tr><td>IBM</td></tr><tr><td>ICE</td></tr><tr><td>IFF</td></tr><tr><td>IGT</td></tr><tr><td>INTC</td></tr><tr><td>INTU</td></tr><tr><td>IP</td></tr><tr><td>IPG</td></tr><tr><td>IR</td></tr><tr><td>IRM</td></tr><tr><td>ISRG</td></tr><tr><td>ITT</td></tr><tr><td>ITW</td></tr><tr><td>IVZ</td></tr><tr><td>JBL</td></tr><tr><td>JCI</td></tr><tr><td>JCP</td></tr><tr><td>JDSU</td></tr><tr><td>JEC</td></tr><tr><td>JNJ</td></tr><tr><td>JNPR</td></tr><tr><td>JNS</td></tr><tr><td>JOYG</td></tr><tr><td>JPM</td></tr><tr><td>JWN</td></tr><tr><td>K</td></tr><tr><td>KEY</td></tr><tr><td>KFT</td></tr><tr><td>KIM</td></tr><tr><td>KLAC</td></tr><tr><td>KMB</td></tr><tr><td>KMX</td></tr><tr><td>KO</td></tr><tr><td>KR</td></tr><tr><td>KSS</td></tr><tr><td>L</td></tr><tr><td>LEG</td></tr><tr><td>LEN</td></tr><tr><td>LH</td></tr><tr><td>LIFE</td></tr><tr><td>LLL</td></tr><tr><td>LLTC</td></tr><tr><td>LLY</td></tr><tr><td>LM</td></tr><tr><td>LMT</td></tr><tr><td>LNC</td></tr><tr><td>LO</td></tr><tr><td>LOW</td></tr><tr><td>LSI</td></tr><tr><td>LTD</td></tr><tr><td>LUK</td></tr><tr><td>LUV</td></tr><tr><td>LXK</td></tr><tr><td>M</td></tr><tr><td>MA</td></tr><tr><td>MAR</td></tr><tr><td>MAS</td></tr><tr><td>MAT</td></tr><tr><td>MCD</td></tr><tr><td>MCHP</td></tr><tr><td>MCK</td></tr><tr><td>MCO</td></tr><tr><td>MDT</td></tr><tr><td>MET</td></tr><tr><td>MHP</td></tr><tr><td>MHS</td></tr><tr><td>MJN</td></tr><tr><td>MKC</td></tr><tr><td>MMC</td></tr><tr><td>MMI</td></tr><tr><td>MMM</td></tr><tr><td>MO</td></tr><tr><td>MOLX</td></tr><tr><td>MON</td></tr><tr><td>MPC</td></tr><tr><td>MRK</td></tr><tr><td>MRO</td></tr><tr><td>MS</td></tr><tr><td>MSFT</td></tr><tr><td>MSI</td></tr><tr><td>MTB</td></tr><tr><td>MU</td></tr><tr><td>MUR</td></tr><tr><td>MWV</td></tr><tr><td>MWW</td></tr><tr><td>MYL</td></tr><tr><td>NBL</td></tr><tr><td>NBR</td></tr><tr><td>NDAQ</td></tr><tr><td>NE</td></tr><tr><td>NEE</td></tr><tr><td>NEM</td></tr><tr><td>NFLX</td></tr><tr><td>NFX</td></tr><tr><td>NI</td></tr><tr><td>NKE</td></tr><tr><td>NOC</td></tr><tr><td>NOV</td></tr><tr><td>NRG</td></tr><tr><td>NSC</td></tr><tr><td>NSM</td></tr><tr><td>NTAP</td></tr><tr><td>NTRS</td></tr><tr><td>NU</td></tr><tr><td>NUE</td></tr><tr><td>NVDA</td></tr><tr><td>NVLS</td></tr><tr><td>NWL</td></tr><tr><td>NWSA</td></tr><tr><td>NYX</td></tr><tr><td>OI</td></tr><tr><td>OKE</td></tr><tr><td>OMC</td></tr><tr><td>ORCL</td></tr><tr><td>ORLY</td></tr><tr><td>OXY</td></tr><tr><td>PAYX</td></tr><tr><td>PBCT</td></tr><tr><td>PBI</td></tr><tr><td>PCAR</td></tr><tr><td>PCG</td></tr><tr><td>PCL</td></tr><tr><td>PCLN</td></tr><tr><td>PCP</td></tr><tr><td>PCS</td></tr><tr><td>PDCO</td></tr><tr><td>PEG</td></tr><tr><td>PEP</td></tr><tr><td>PFE</td></tr><tr><td>PFG</td></tr><tr><td>PG</td></tr><tr><td>PGN</td></tr><tr><td>PGR</td></tr><tr><td>PH</td></tr><tr><td>PHM</td></tr><tr><td>PKI</td></tr><tr><td>PLD</td></tr><tr><td>PLL</td></tr><tr><td>PM</td></tr><tr><td>PNC</td></tr><tr><td>PNW</td></tr><tr><td>POM</td></tr><tr><td>PPG</td></tr><tr><td>PPL</td></tr><tr><td>PRU</td></tr><tr><td>PSA</td></tr><tr><td>PWR</td></tr><tr><td>PX</td></tr><tr><td>PXD</td></tr><tr><td>QCOM</td></tr><tr><td>QEP</td></tr><tr><td>R</td></tr><tr><td>RAI</td></tr><tr><td>RDC</td></tr><tr><td>RF</td></tr><tr><td>RHI</td></tr><tr><td>RHT</td></tr><tr><td>RL</td></tr><tr><td>ROK</td></tr><tr><td>ROP</td></tr><tr><td>ROST</td></tr><tr><td>RRC</td></tr><tr><td>RRD</td></tr><tr><td>RSG</td></tr><tr><td>RTN</td></tr><tr><td>S</td></tr><tr><td>SAI</td></tr><tr><td>SBUX</td></tr><tr><td>SCG</td></tr><tr><td>SCHW</td></tr><tr><td>SE</td></tr><tr><td>SEE</td></tr><tr><td>SHLD</td></tr><tr><td>SHW</td></tr><tr><td>SIAL</td></tr><tr><td>SJM</td></tr><tr><td>SLB</td></tr><tr><td>SLE</td></tr><tr><td>SLM</td></tr><tr><td>SNA</td></tr><tr><td>SNDK</td></tr><tr><td>SNI</td></tr><tr><td>SO</td></tr><tr><td>SPG</td></tr><tr><td>SPLS</td></tr><tr><td>SRCL</td></tr><tr><td>SRE</td></tr><tr><td>STI</td></tr><tr><td>STJ</td></tr><tr><td>STT</td></tr><tr><td>STZ</td></tr><tr><td>SUN</td></tr><tr><td>SVU</td></tr><tr><td>SWK</td></tr><tr><td>SWN</td></tr><tr><td>SWY</td></tr><tr><td>SYK</td></tr><tr><td>SYMC</td></tr><tr><td>SYY</td></tr><tr><td>T</td></tr><tr><td>TAP</td></tr><tr><td>TDC</td></tr><tr><td>TE</td></tr><tr><td>TEG</td></tr><tr><td>TER</td></tr><tr><td>TGT</td></tr><tr><td>THC</td></tr><tr><td>TIE</td></tr><tr><td>TIF</td></tr><tr><td>TJX</td></tr><tr><td>TLAB</td></tr><tr><td>TMK</td></tr><tr><td>TMO</td></tr><tr><td>TROW</td></tr><tr><td>TRV</td></tr><tr><td>TSN</td></tr><tr><td>TSO</td></tr><tr><td>TSS</td></tr><tr><td>TWC</td></tr><tr><td>TWX</td></tr><tr><td>TXN</td></tr><tr><td>TXT</td></tr><tr><td>TYC</td></tr><tr><td>UNH</td></tr><tr><td>UNM</td></tr><tr><td>UNP</td></tr><tr><td>UPS</td></tr><tr><td>URBN</td></tr><tr><td>USB</td></tr><tr><td>UTX</td></tr><tr><td>V</td></tr><tr><td>VAR</td></tr><tr><td>VFC</td></tr><tr><td>VIA-B</td></tr><tr><td>VLO</td></tr><tr><td>VMC</td></tr><tr><td>VNO</td></tr><tr><td>VRSN</td></tr><tr><td>VTR</td></tr><tr><td>VZ</td></tr><tr><td>WAG</td></tr><tr><td>WAT</td></tr><tr><td>WDC</td></tr><tr><td>WEC</td></tr><tr><td>WFC</td></tr><tr><td>WFM</td></tr><tr><td>WFR</td></tr><tr><td>WHR</td></tr><tr><td>WIN</td></tr><tr><td>WLP</td></tr><tr><td>WM</td></tr><tr><td>WMB</td></tr><tr><td>WMT</td></tr><tr><td>WPI</td></tr><tr><td>WPO</td></tr><tr><td>WU</td></tr><tr><td>WY</td></tr><tr><td>WYN</td></tr><tr><td>WYNN</td></tr><tr><td>X</td></tr><tr><td>XEL</td></tr><tr><td>XL</td></tr><tr><td>XLNX</td></tr><tr><td>XOM</td></tr><tr><td>XRAY</td></tr><tr><td>XRX</td></tr><tr><td>YHOO</td></tr><tr><td>YUM</td></tr><tr><td>ZION</td></tr><tr><td>ZMH</td></tr></tbody>
+              </table>
+            </div>
+            <div class="tab-pane" id="sec6tab4">
+              <pre><code><br>from wakaridata.yahoofinance import Stocks<br>stocks = Stocks()<br># Get list of dataset keys<br>keys = stocks.keys()<br># Get IOPro text adapter<br>adapter = stocks[keys[0]]<br># Get NumPy array of all records<br>array = adapter[:]<br>print array<br><br></code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordionPublicData" href="https://wakari.io/wakari#collapse7">
+        NFL Play-By-Play 2002-Current
+      </a>
+    </div>
+    <div id="collapse7" class="accordion-body collapse">
+      <div class="accordion-inner">
+        <div class="tabbable">
+          <ul class="nav nav-tabs">
+            <li class="active"><a href="https://wakari.io/wakari#sec7tab1" data-toggle="tab">Desc</a></li>
+            <li><a href="https://wakari.io/wakari#sec7tab2" data-toggle="tab">Keys</a></li>
+            <li><a href="https://wakari.io/wakari#sec7tab4" data-toggle="tab">Example</a></li>
+          </ul>
+          <div class="tab-content">
+            <div class="tab-pane active" id="sec7tab1">
+              <p class="dataPublicDesc">
+    Play-By-Play breakdown for every in the NFL 
+    since 2002self.
+
+    Data Set Columns:
+
+    gameid, qtr, min, sec, offense,
+    defense, down, togo, ydline,
+    description, offscore, defscore,
+    season
+
+    </p>
+            </div>
+            <div class="tab-pane" id="sec7tab2">
+              <table class="table table-striped table-condensed">
+                <thead><tr><th>Keys</th></tr></thead>
+                <tbody><tr><td>2002</td></tr><tr><td>2003</td></tr><tr><td>2004</td></tr><tr><td>2005</td></tr><tr><td>2006</td></tr><tr><td>2007</td></tr><tr><td>2008</td></tr><tr><td>2009</td></tr><tr><td>2010</td></tr><tr><td>2011</td></tr><tr><td>2012</td></tr></tbody>
+              </table>
+            </div>
+            <div class="tab-pane" id="sec7tab4">
+              <pre><code><br>from wakaridata.nfl_pbp import NFL_PBP<br>nfl_pbp = NFL_PBP()<br># Get list of dataset keys<br>keys = nfl_pbp.keys()<br># Get IOPro text adapter<br>adapter = nfl_pbp[keys[0]]<br># Get NumPy array of all records<br>array = adapter[:10]<br>print array<br><br></code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    </div>
+  </div>
+</div>
+</div></div>
+    <div id="modalFooter" class="modal-footer">
+    </div>
+  </div>
+  <div id="pyEnvsModal" class="modal hide">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal">x</button>      
+      <h3 id="modalTitle">Anaconda Environment Browser</h3>
+    </div>
+    <div id="pyenvsBrowser" class="modal-body">
+    </div>
+    <div id="modalFooter" class="modal-footer">
+    </div>
+  </div>
+  
+
+    <div id="mergePanesHelp" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">x</button>
+        <h3 id="modalTitle">Wakari Panes</h3>
+      </div>
+      <div id="modalBody" class="modal-body">
+        <p>The main Wakari window can be split into two tabbed workspace panes.</p>
+        <p><b>Click and hold on any tab</b> to force a new workspace pane to be opened with the tab in it.&nbsp;&nbsp;You can also click and hold on a tab to force the tab to move from pane to pane.</p>
+        <p><b>Click on the Merge Panes button</b> in the toolbar at the top of the window to merge the two workspace panes back into a single pane.</p>
+        <p>On the left side of the main window is the Sidebar.&nbsp;&nbsp;Click on the Sidebar button in the toolbar at the top of the window to toggle the Sidebar pane.</p>
+      </div>
+      <div id="modalFooter" class="modal-footer">
+        <a id="modalCancelBtn" href="https://wakari.io/wakari#" class="btn" data-dismiss="modal">Close</a>
+      </div>
+    </div>
+
+  
+
+</body></html>
